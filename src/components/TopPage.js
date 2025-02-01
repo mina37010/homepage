@@ -20,7 +20,7 @@ const TopPage = () => {
       reverseDirection, // 逆方向に流れるかどうかを保持
     };
 
-    console.log("Generated party item:", newPartyItem);
+
 
     // stateに追加
     setPartyItems((prev) => [...prev, newPartyItem]);
@@ -72,8 +72,8 @@ const TopPage = () => {
         <motion.div
         key={item.id}
         className="absolute text-yellow-400 font-bold"
-        initial={{ x: item.reverseDirection ? "-100px" : "100vw", opacity: 1 }}
-        animate={{ x: item.reverseDirection ? "100vw" : "-100px", opacity: 1 }}
+        initial={{ x: item.reverseDirection ? "-100px" : "85vw", opacity: 1 }}
+        animate={{ x: item.reverseDirection ? "85vw" : "-100px", opacity: 1 }}
         transition={{ duration: 5 }}
         style={{
           top: item.y,
@@ -82,8 +82,7 @@ const TopPage = () => {
           whiteSpace: "nowrap",
           position: "absolute",
         }}
-      >
-        party!
+      >party!
       </motion.div>
       
       ))}
@@ -160,6 +159,7 @@ const TopPage = () => {
 
         body {
           overflow-x: hidden;
+          overflow-y: auto;
         }
       `}</style>
     </div>
