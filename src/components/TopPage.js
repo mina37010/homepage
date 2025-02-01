@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { motion } from "framer-motion";
 
 const TopPage = () => {
@@ -7,7 +7,7 @@ const TopPage = () => {
   // "party!" を追加する関数
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80); // 0%〜80%のランダム高さ
-    const randomFontSize = Math.random() + 2; 
+    const randomFontSize = Math.random()*5 + 2; 
     const randomZIndex = Math.floor(Math.random() * 10) + 5; // z-index を 5〜15 の間でランダムに設定
     const reverseDirection = Math.random() < 1 / 10; 
     const id = Math.random().toString(36).substring(2, 9); // 一意なIDを生成
@@ -31,6 +31,20 @@ const TopPage = () => {
     }, 3000);
   };
 
+    // ページ全体でクリックイベントを監視
+    useEffect(() => {
+      const handleClick = (e) => {
+        addParty(e);
+      };
+  
+      document.body.addEventListener("click", handleClick);
+  
+      // クリーンアップ処理（アンマウント時）
+      return () => {
+        document.body.removeEventListener("click", handleClick);
+      };
+    }, []);
+
   return (
     <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
       {/* 光の放射状ライン */}
@@ -42,6 +56,7 @@ const TopPage = () => {
             transform: `rotate(${i * 36}deg)`,
             animation: `glowAnimation 3s infinite`,
             zIndex: 20,
+            pointerEvents: "none", // クリックをブロックしない
           }}
         ></div>
       ))}
@@ -57,41 +72,49 @@ const TopPage = () => {
           zIndex: 20,
           textAlign: "center",
         }}
+        onClick={(e) => e.stopPropagation()} // 背景クリックをブロック
       >
-        <a href="https://github.com/mina37010/homepage">浅香.party!!!!!!!!</a>
+       浅香.party!!!!!!!!
         <button
-          onClick={addParty}
+          onClick={(e) => {
+            e.stopPropagation(); // ボタンのクリックが背景に伝播しない
+          }}
           className="absolute bg-pink-500 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition"
         >
-          Party!
+          Partyに参加！
         </button>
       </motion.h1>
 
       {/* 流れる "party" テキスト */}
-      {partyItems.map((item) => (
-        <motion.div
-        key={item.id}
-        className="absolute text-yellow-400 font-bold"
-        initial={{
-          x: item.reverseDirection ? "-100%" : "90vw", // 開始位置と終了位置を調整
-          opacity: 1,
-        }}
-        animate={{
-          x: item.reverseDirection ? "90vw" : "-100%",
-          opacity: 1,
-        }}
-        transition={{ duration:3, ease: "linear" }}
-        style={{
-          top: item.y,
-          fontSize: item.fontSize,
-          zIndex: item.zIndex,
-          whiteSpace: "nowrap",
-          position: "absolute",
-        }}
-      >party!
-      </motion.div>
-      
-      ))}
+      {partyItems.map((item) => {
+        const fontSizeInVw = parseFloat(item.fontSize);
+        const textWidthOffset = fontSizeInVw * 3; // テキストの長さの概算
+
+        return (
+          <motion.div
+            key={item.id}
+            className="absolute text-yellow-400 font-bold"
+            initial={{
+              x: item.reverseDirection ? "-100%" : `${100-textWidthOffset}vw`,
+              opacity: 1,
+            }}
+            animate={{
+              x: item.reverseDirection ?  `${100-textWidthOffset}vw` : "-100%",
+              opacity: 1,
+            }}
+            transition={{ duration: 3, ease: "linear" }}
+            style={{
+              top: item.y,
+              fontSize: item.fontSize,
+              zIndex: item.zIndex,
+              whiteSpace: "nowrap",
+              position: "absolute",
+            }}
+          >
+            party!
+          </motion.div>
+        );
+      })}
 
       <style>{`
         body, html {
