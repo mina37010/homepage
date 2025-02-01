@@ -70,21 +70,22 @@ const TopPage = () => {
       {/* 流れる "party" テキスト */}
       {partyItems.map((item) => (
         <motion.div
-          key={item.id}
-          className="absolute text-yellow-400 font-bold"
-          initial={{ x: item.reverseDirection ? "-10vw" : "100vw", opacity: 1 }}
-          animate={{ x: item.reverseDirection ? "100vw" : "-10vw", opacity: 1 }}
-          transition={{ duration: 5 }}
-          style={{
-            top: item.y,
-            fontSize: item.fontSize,
-            zIndex: item.zIndex,
-            whiteSpace: "nowrap",
-            position: "absolute",
-          }}
-        >
-          party!
-        </motion.div>
+        key={item.id}
+        className="absolute text-yellow-400 font-bold"
+        initial={{ x: item.reverseDirection ? "-100px" : "100vw", opacity: 1 }}
+        animate={{ x: item.reverseDirection ? "100vw" : "-100px", opacity: 1 }}
+        transition={{ duration: 5 }}
+        style={{
+          top: item.y,
+          fontSize: item.fontSize,
+          zIndex: item.zIndex,
+          whiteSpace: "nowrap",
+          position: "absolute",
+        }}
+      >
+        party!
+      </motion.div>
+      
       ))}
 
       <style>{`
