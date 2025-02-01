@@ -9,25 +9,27 @@ const TopPage = () => {
     const randomY = Math.floor(Math.random() * 80); // 0%〜80%のランダム高さ
     const randomFontSize = Math.floor(Math.random() * 30) + 20; // 20px〜50pxのランダムなフォントサイズ
     const randomZIndex = Math.floor(Math.random() * 10) + 5; // z-index を 5〜15 の間でランダムに設定
+    const reverseDirection = Math.random() < 1 / 10; // 1/50 の確率で逆方向
     const id = Math.random().toString(36).substring(2, 9); // 一意なIDを生成
+
     const newPartyItem = {
       id,
       y: `${randomY}%`,
       fontSize: `${randomFontSize}px`,
       zIndex: randomZIndex,
+      reverseDirection, // 逆方向に流れるかどうかを保持
     };
-  
-    // 生成したデータを表示
+
     console.log("Generated party item:", newPartyItem);
 
-  // stateに追加
-  setPartyItems((prev) => [...prev, newPartyItem]);
+    // stateに追加
+    setPartyItems((prev) => [...prev, newPartyItem]);
 
-  // 5秒後にコメントを削除
-  setTimeout(() => {
-    setPartyItems((prev) => prev.filter((item) => item.id !== id));
-  }, 5000);
-};
+    // 5秒後にコメントを削除
+    setTimeout(() => {
+      setPartyItems((prev) => prev.filter((item) => item.id !== id));
+    }, 5000);
+  };
 
   return (
     <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
@@ -70,15 +72,15 @@ const TopPage = () => {
         <motion.div
           key={item.id}
           className="absolute text-yellow-400 font-bold"
-          initial={{ x: "100vw", opacity: 1 }}
-          animate={{ x: "-10vw", opacity: 1 }}
+          initial={{ x: item.reverseDirection ? "-10vw" : "100vw", opacity: 1 }}
+          animate={{ x: item.reverseDirection ? "100vw" : "-10vw", opacity: 1 }}
           transition={{ duration: 5 }}
           style={{
             top: item.y,
             fontSize: item.fontSize,
             zIndex: item.zIndex,
             whiteSpace: "nowrap",
-            position:"absolute"
+            position: "absolute",
           }}
         >
           party!
