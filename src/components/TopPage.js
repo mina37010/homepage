@@ -7,7 +7,7 @@ const TopPage = () => {
   // "party!" を追加する関数
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80); // 0%〜80%のランダム高さ
-    const randomFontSize = Math.random() * 2 + 2; 
+    const randomFontSize = Math.random() + 2; 
     const randomZIndex = Math.floor(Math.random() * 10) + 5; // z-index を 5〜15 の間でランダムに設定
     const reverseDirection = Math.random() < 1 / 10; // 1/50 の確率で逆方向
     const id = Math.random().toString(36).substring(2, 9); // 一意なIDを生成
@@ -28,7 +28,7 @@ const TopPage = () => {
     // 5秒後にコメントを削除
     setTimeout(() => {
       setPartyItems((prev) => prev.filter((item) => item.id !== id));
-    }, 5000);
+    }, 3000);
   };
 
   return (
@@ -58,7 +58,7 @@ const TopPage = () => {
           textAlign: "center",
         }}
       >
-        <a href="https://210o.net/">浅香.party!!!!!!!!</a>
+        <a href="https://github.com/mina37010/homepage">浅香.party!!!!!!!!</a>
         <button
           onClick={addParty}
           className="absolute bg-pink-500 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition"
@@ -72,9 +72,15 @@ const TopPage = () => {
         <motion.div
         key={item.id}
         className="absolute text-yellow-400 font-bold"
-        initial={{ x: item.reverseDirection ? "-100px" : "85vw", opacity: 1 }}
-        animate={{ x: item.reverseDirection ? "85vw" : "-100px", opacity: 1 }}
-        transition={{ duration: 5 }}
+        initial={{
+          x: item.reverseDirection ? "-100%" : "90vw", // 開始位置と終了位置を調整
+          opacity: 1,
+        }}
+        animate={{
+          x: item.reverseDirection ? "90vw" : "-100%",
+          opacity: 1,
+        }}
+        transition={{ duration:3, ease: "linear" }}
         style={{
           top: item.y,
           fontSize: item.fontSize,
@@ -88,6 +94,14 @@ const TopPage = () => {
       ))}
 
       <style>{`
+        body, html {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          width: 100vw;
+          height: 100vh;
+        }
+        
         @keyframes glowAnimation {
           0%, 100% {
             opacity: 0.5;
