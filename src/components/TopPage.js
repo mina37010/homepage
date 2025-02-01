@@ -9,7 +9,7 @@ const TopPage = () => {
     const randomY = Math.floor(Math.random() * 80); // 0%〜80%のランダム高さ
     const randomFontSize = Math.random() + 2; 
     const randomZIndex = Math.floor(Math.random() * 10) + 5; // z-index を 5〜15 の間でランダムに設定
-    const reverseDirection = Math.random() < 1 / 10; // 1/50 の確率で逆方向
+    const reverseDirection = Math.random() < 1 / 10; 
     const id = Math.random().toString(36).substring(2, 9); // 一意なIDを生成
 
     const newPartyItem = {
