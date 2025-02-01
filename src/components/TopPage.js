@@ -78,8 +78,10 @@ const TopPage = () => {
         <button
           onClick={(e) => {
             e.stopPropagation(); // ボタンのクリックが背景に伝播しない
+            window.location.href = 'https://maroyaka.party'; 
           }}
           className="absolute bg-pink-500 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition"
+          
         >
           Partyに参加！
         </button>
