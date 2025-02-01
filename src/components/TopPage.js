@@ -41,7 +41,7 @@ const TopPage = () => {
           style={{
             transform: `rotate(${i * 36}deg)`,
             animation: `glowAnimation 3s infinite`,
-            zIndex: 0,
+            zIndex: 20,
           }}
         ></div>
       ))}
@@ -54,7 +54,7 @@ const TopPage = () => {
           top: "40%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          zIndex: 0,
+          zIndex: 20,
           textAlign: "center",
         }}
       >
