@@ -158,6 +158,9 @@ const TopPage = () => {
           background-image: linear-gradient(to left, #27acd9 0%, #b4e12b 100%);
         }
 
+        body {
+          overflow-x: hidden;
+        }
       `}</style>
     </div>
   );
