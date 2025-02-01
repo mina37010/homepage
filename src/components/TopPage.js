@@ -7,7 +7,7 @@ const TopPage = () => {
   // "party!" を追加する関数
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80); // 0%〜80%のランダム高さ
-    const randomFontSize = Math.floor(Math.random() * 30) + 20; // 20px〜50pxのランダムなフォントサイズ
+    const randomFontSize = Math.random() * 2 + 2; 
     const randomZIndex = Math.floor(Math.random() * 10) + 5; // z-index を 5〜15 の間でランダムに設定
     const reverseDirection = Math.random() < 1 / 10; // 1/50 の確率で逆方向
     const id = Math.random().toString(36).substring(2, 9); // 一意なIDを生成
@@ -15,7 +15,7 @@ const TopPage = () => {
     const newPartyItem = {
       id,
       y: `${randomY}%`,
-      fontSize: `${randomFontSize}px`,
+      fontSize: `${randomFontSize}vw`,
       zIndex: randomZIndex,
       reverseDirection, // 逆方向に流れるかどうかを保持
     };
@@ -116,6 +116,12 @@ const TopPage = () => {
           }
         }
 
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 6vw;
+          }
+        }
+
         .neon-glow {
           animation: neonGlowColorCycle 5s infinite alternate;
         }
@@ -127,27 +133,30 @@ const TopPage = () => {
           padding: 0;
         }
 
-        button {
+       button {
           display: block;
           text-align: center;
           vertical-align: middle;
           text-decoration: none;
-          width: 120px;
+          width: 25vw; /* 画面の幅に基づいたボタンの幅 */
           margin: auto;
-          padding: 1rem 0rem;
+          padding: 1.5vw 0; /* ボタン上下のパディング */
+          font-size: 1.5vw; /* 相対的なフォントサイズ */
           font-weight: bold;
           background-image: linear-gradient(to right, #27acd9 0%, #b4e12b 100%);
-          border-radius: 100vh;
+          border-radius: 50vw; /* ボタンを丸くするために幅に対する割合で設定 */
           color: #fff;
-          border: 2px solid #fff;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-          -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+          border: 0.5vw solid #fff; /* ボタンの境界線を相対的に調整 */
+          box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
           transition: 0.5s;
         }
+
         button:hover {
           color: #fff;
           background-image: linear-gradient(to left, #27acd9 0%, #b4e12b 100%);
         }
+
       `}</style>
     </div>
   );
