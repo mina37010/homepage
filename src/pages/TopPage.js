@@ -1,49 +1,9 @@
-import React, { useState ,useEffect} from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useParty } from '../PartyContext';  // グローバルな状態をインポート
 
 const TopPage = () => {
-  const [partyItems, setPartyItems] = useState([]);
-
-  // "party!" を追加する関数
-  const addParty = () => {
-    const randomY = Math.floor(Math.random() * 80); // 0%〜80%のランダム高さ
-    const randomFontSize = Math.random()*5 + 2; 
-    const randomZIndex = Math.floor(Math.random() * 10) + 5; // z-index を 5〜15 の間でランダムに設定
-    const reverseDirection = Math.random() < 1 / 10; 
-    const id = Math.random().toString(36).substring(2, 9); // 一意なIDを生成
-
-    const newPartyItem = {
-      id,
-      y: `${randomY}%`,
-      fontSize: `${randomFontSize}vw`,
-      zIndex: randomZIndex,
-      reverseDirection, // 逆方向に流れるかどうかを保持
-    };
-
-
-
-    // stateに追加
-    setPartyItems((prev) => [...prev, newPartyItem]);
-
-    // 5秒後にコメントを削除
-    setTimeout(() => {
-      setPartyItems((prev) => prev.filter((item) => item.id !== id));
-    }, 3000);
-  };
-
-    // ページ全体でクリックイベントを監視
-    useEffect(() => {
-      const handleClick = (e) => {
-        addParty(e);
-      };
-  
-      document.body.addEventListener("click", handleClick);
-  
-      // クリーンアップ処理（アンマウント時）
-      return () => {
-        document.body.removeEventListener("click", handleClick);
-      };
-    }, []);
+  const { partyItems } = useParty();  // グローバルな "party!" の状態を取得
 
   return (
     <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
@@ -56,7 +16,7 @@ const TopPage = () => {
             transform: `rotate(${i * 36}deg)`,
             animation: `glowAnimation 3s infinite`,
             zIndex: 20,
-            pointerEvents: "none", // クリックをブロックしない
+            pointerEvents: "none",  // クリックをブロックしない
           }}
         ></div>
       ))}
@@ -72,36 +32,34 @@ const TopPage = () => {
           zIndex: 20,
           textAlign: "center",
         }}
-        onClick={(e) => e.stopPropagation()} // 背景クリックをブロック
       >
-       浅香.party!!!!!!!!
+        浅香.party!!!!!!!!
         <button
           onClick={(e) => {
-            e.stopPropagation(); // ボタンのクリックが背景に伝播しない
-            window.location.href = 'https://maroyaka.party'; 
+            e.stopPropagation();  // ボタンのクリックが背景に伝播しない
+            window.location.href = 'https://maroyaka.party';
           }}
           className="absolute bg-pink-500 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition"
-          
         >
           Partyに参加！
         </button>
       </motion.h1>
 
-      {/* 流れる "party" テキスト */}
+      {/* グローバルな "party!" アニメーション */}
       {partyItems.map((item) => {
         const fontSizeInVw = parseFloat(item.fontSize);
-        const textWidthOffset = fontSizeInVw * 3; // テキストの長さの概算
+        const textWidthOffset = fontSizeInVw * 3;  // テキストの長さの概算
 
         return (
           <motion.div
             key={item.id}
             className="absolute text-yellow-400 font-bold"
             initial={{
-              x: item.reverseDirection ? "-100%" : `${100-textWidthOffset}vw`,
+              x: item.reverseDirection ? "-100%" : `${100 - textWidthOffset}vw`,
               opacity: 1,
             }}
             animate={{
-              x: item.reverseDirection ?  `${100-textWidthOffset}vw` : "-100%",
+              x: item.reverseDirection ? `${100 - textWidthOffset}vw` : "-100%",
               opacity: 1,
             }}
             transition={{ duration: 3, ease: "linear" }}
@@ -126,7 +84,7 @@ const TopPage = () => {
           width: 100vw;
           height: 100vh;
         }
-        
+
         @keyframes glowAnimation {
           0%, 100% {
             opacity: 0.5;
@@ -165,14 +123,7 @@ const TopPage = () => {
           animation: neonGlowColorCycle 5s infinite alternate;
         }
 
-        a {
-          color: inherit;
-          text-decoration: none;
-          border: none;
-          padding: 0;
-        }
-
-       button {
+        button {
           display: block;
           text-align: center;
           vertical-align: middle;
@@ -191,14 +142,16 @@ const TopPage = () => {
           transition: 0.5s;
         }
 
+        a {
+          color: inherit;
+          text-decoration: none;
+          border: none;
+          padding: 0;
+        }
+        
         button:hover {
           color: #fff;
           background-image: linear-gradient(to left, #27acd9 0%, #b4e12b 100%);
-        }
-
-        body {
-          overflow-x: hidden;
-          overflow-y: auto;
         }
       `}</style>
     </div>

@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    background-color: #333;
+  }
+  
+  nav ul li {
+    margin-right: 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .not-found-container {
+    text-align: center;
+    background-color: #f8f8f8;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
