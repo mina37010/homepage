@@ -7,16 +7,16 @@ import { PartyProvider } from './PartyContext';
 
 function App() {
   return (
-    <PartyProvider>
-      <Router>
+    <Router>
+      <PartyProvider>
         <Layout>
           <Routes>
             <Route path="/" element={<TopPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
-      </Router>
-    </PartyProvider>
+      </PartyProvider>
+    </Router>
   );
 }
 

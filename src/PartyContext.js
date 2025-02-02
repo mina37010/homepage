@@ -1,15 +1,20 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Contextの作成
 const PartyContext = createContext();
 
-// Providerコンポーネント
 export const PartyProvider = ({ children }) => {
   const [partyItems, setPartyItems] = useState([]);
+  const location = useLocation();  // 現在のページのパスを取得
 
-  // "party!" を追加する関数
+  // 特定のページでイベントを有効にするリスト
+  const eventEnabledPaths = ['/'];  // 必要なパスを追加
+  // App.js に登録されている有効なルートのリスト
+  const registeredPaths = [];
+
   const addParty = () => {
-    const randomY = Math.floor(Math.random() * 80); // ランダムな高さ
+    const randomY = Math.floor(Math.random() * 80);
     const randomFontSize = Math.random() * 5 + 2;
     const randomZIndex = Math.floor(Math.random() * 10) + 5;
     const reverseDirection = Math.random() < 0.5;
@@ -25,22 +30,28 @@ export const PartyProvider = ({ children }) => {
 
     setPartyItems((prev) => [...prev, newPartyItem]);
 
-    // 3秒後に削除
     setTimeout(() => {
       setPartyItems((prev) => prev.filter((item) => item.id !== id));
     }, 3000);
   };
 
-  // クリックイベントをページ全体で監視
   useEffect(() => {
-    const handleClick = () => addParty();
+    const handleClick = (e) => {
+      // 特定のページ、または未登録のページの場合にのみ有効化
+      if (
+        !e.defaultPrevented &&
+        (eventEnabledPaths.includes(location.pathname) || !registeredPaths.includes(location.pathname))
+      ) {
+        addParty();
+      }
+    };
 
     document.body.addEventListener('click', handleClick);
 
     return () => {
       document.body.removeEventListener('click', handleClick);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <PartyContext.Provider value={{ partyItems }}>
@@ -49,5 +60,4 @@ export const PartyProvider = ({ children }) => {
   );
 };
 
-// Contextを利用するためのカスタムフック
 export const useParty = () => useContext(PartyContext);
