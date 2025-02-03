@@ -9,7 +9,7 @@ export const PartyProvider = ({ children }) => {
   const location = useLocation();  // 現在のページのパスを取得
 
   // 特定のページでイベントを有効にするリスト
-  const eventEnabledPaths = ['/'];  // 必要なパスを追加
+  const eventEnabledPaths = ['/','/party'];  // 必要なパスを追加
 
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80);

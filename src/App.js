@@ -4,6 +4,7 @@ import TopPage from './pages/TopPage';
 import NotFound from './pages/NotFound';
 import Layout from './Layout';
 import { PartyProvider } from './PartyContext';
+import Party from './pages/Party';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<TopPage />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/party" element={<Party />} />
           </Routes>
         </Layout>
       </PartyProvider>
