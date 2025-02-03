@@ -59,7 +59,7 @@ const Party = () => {
         className="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-pink-500 neon-glow"
         style={{
           position: "relative",
-          transform: "translate(,200%)",
+          transform: "translate(0,200%)",
           textAlign: "center",
         }}
       >
@@ -100,7 +100,7 @@ const Party = () => {
             color: item.color,  // カラフルな色を適用
             zIndex: 50,
             whiteSpace: 'nowrap',
-            position: 'absolute',
+            position: 'fixed',
             }}
         >
             party!

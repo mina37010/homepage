@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useParty } from '../PartyContext';  // グローバルな状態をインポート
 
 const TopPage = () => {
 

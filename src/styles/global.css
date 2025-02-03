@@ -29,8 +29,3 @@ body {
     justify-content: center;
     align-items: center;
   }
-
-  .View{
-    position: 'relative';
-    z-index: 10;
-  }
