@@ -9,7 +9,7 @@ export const PartyProvider = ({ children }) => {
   const location = useLocation();  // 現在のページのパスを取得
 
   // 特定のページでイベントを有効にするリストをメモ化
-  const eventEnabledPaths = useMemo(() => ['', '/party'], []);  // メモ化
+  const eventEnabledPaths = useMemo(() => ['/', '/party'], []);  // メモ化
 
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80);
