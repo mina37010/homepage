@@ -4,7 +4,6 @@ import { useParty } from '../PartyContext';  // グローバルな状態をイ�
 
 const Party = () => {
   const [partyItems, setPartyItems] = useState([]);
-  const { partyItems: globalPartyItems } = useParty(); // グローバルな "party!" の状態を取得
   const [isCooldown, setIsCooldown] = useState(false);
 
   // "party!" を大量に追加する関数（弾幕用）
