@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-
 const Party = () => {
   const [partyItems, setPartyItems] = useState([]);
   const [isCooldown, setIsCooldown] = useState(false);
