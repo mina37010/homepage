@@ -73,7 +73,14 @@ function NotFound() {
           </motion.div>
         );
       })}
+
+    <style>{`
+    nav {
+      display: none;
+    }
+    `}</style>
     </div>
+ 
   );
 }
 

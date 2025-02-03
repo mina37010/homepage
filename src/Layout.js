@@ -1,15 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { useParty } from './PartyContext';
+import Navbar from './components/Navbar';  // 必要なら調整
 
 function Layout({ children }) {
+  const location = useLocation();
   const { partyItems } = useParty();
+
+  // ナビゲーションを表示しないパスのリスト
+  const hideNavbarPaths = ['/party'];
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
+      {/* ナビゲーションバー */}
+      {!hideNavbarPaths.includes(location.pathname) && <Navbar />}
+
+      {/* ページのメインコンテンツ */}
       {children}
 
-      {/* 流れる "party!" */}
+      {/* 流れる "party!" アニメーション */}
       {partyItems.map((item) => {
         const fontSizeInVw = parseFloat(item.fontSize);
         const textWidthOffset = fontSizeInVw * 3;
