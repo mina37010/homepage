@@ -15,7 +15,6 @@ const TopPage = () => {
           style={{
             transform: `rotate(${i * 36}deg)`,
             animation: `glowAnimation 3s infinite`,
-            zIndex: 20,
             pointerEvents: "none",  // クリックをブロックしない
           }}
         ></div>
@@ -29,7 +28,6 @@ const TopPage = () => {
           top: "40%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          zIndex: 20,
           textAlign: "center",
         }}
       >
@@ -37,13 +35,13 @@ const TopPage = () => {
         <button
           onClick={(e) => {
             e.stopPropagation();  // ボタンのクリックが背景に伝播しない
-            window.location.href = 'https://maroyaka.party';
+            window.location.href = 'https://github.com/mina37010/homepage';
           }}
           className="absolute bg-pink-500 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition"
         >
           Partyに参加！
         </button>
-      </motion.h1>
+        </motion.h1>
 
       {/* グローバルな "party!" アニメーション */}
       {partyItems.map((item) => {
@@ -148,7 +146,7 @@ const TopPage = () => {
           border: none;
           padding: 0;
         }
-        
+
         button:hover {
           color: #fff;
           background-image: linear-gradient(to left, #27acd9 0%, #b4e12b 100%);

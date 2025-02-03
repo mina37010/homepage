@@ -10,14 +10,12 @@ export const PartyProvider = ({ children }) => {
 
   // 特定のページでイベントを有効にするリスト
   const eventEnabledPaths = ['/'];  // 必要なパスを追加
-  // App.js に登録されている有効なルートのリスト
-  const registeredPaths = [];
 
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80);
     const randomFontSize = Math.random() * 5 + 2;
-    const randomZIndex = Math.floor(Math.random() * 10) + 5;
-    const reverseDirection = Math.random() < 0.5;
+    const randomZIndex = -Math.floor(Math.random() * -10) - 5;
+    const reverseDirection = Math.random() < 0.05;
     const id = Math.random().toString(36).substring(2, 9);
 
     const newPartyItem = {
@@ -40,7 +38,7 @@ export const PartyProvider = ({ children }) => {
       // 特定のページ、または未登録のページの場合にのみ有効化
       if (
         !e.defaultPrevented &&
-        (eventEnabledPaths.includes(location.pathname) || !registeredPaths.includes(location.pathname))
+        (eventEnabledPaths.includes(location.pathname))
       ) {
         addParty();
       }
