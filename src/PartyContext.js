@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // Contextの作成
@@ -8,8 +8,8 @@ export const PartyProvider = ({ children }) => {
   const [partyItems, setPartyItems] = useState([]);
   const location = useLocation();  // 現在のページのパスを取得
 
-  // 特定のページでイベントを有効にするリスト
-  const eventEnabledPaths = ['/','/party'];  // 必要なパスを追加
+  // 特定のページでイベントを有効にするリストをメモ化
+  const eventEnabledPaths = useMemo(() => ['/', '/party'], []);  // メモ化
 
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80);
@@ -44,8 +44,7 @@ export const PartyProvider = ({ children }) => {
     return () => {
       document.body.removeEventListener('click', handleClick);
     };
-  }, [location.pathname, eventEnabledPaths]);  // eventEnabledPathsを追加
-  
+  }, [location.pathname, eventEnabledPaths]);  // 安全に依存配列に追加
 
   return (
     <PartyContext.Provider value={{ partyItems }}>
