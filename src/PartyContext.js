@@ -35,21 +35,17 @@ export const PartyProvider = ({ children }) => {
 
   useEffect(() => {
     const handleClick = (e) => {
-      // 特定のページ、または未登録のページの場合にのみ有効化
-      if (
-        !e.defaultPrevented &&
-        (eventEnabledPaths.includes(location.pathname))
-      ) {
+      if (!e.defaultPrevented && eventEnabledPaths.includes(location.pathname)) {
         addParty();
       }
     };
-
+  
     document.body.addEventListener('click', handleClick);
-
     return () => {
       document.body.removeEventListener('click', handleClick);
     };
-  }, [location.pathname]);
+  }, [location.pathname, eventEnabledPaths]);  // eventEnabledPathsを追加
+  
 
   return (
     <PartyContext.Provider value={{ partyItems }}>

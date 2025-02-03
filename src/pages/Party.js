@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useParty } from '../PartyContext';  // グローバルな状態をインポート
+
 
 const Party = () => {
   const [partyItems, setPartyItems] = useState([]);
