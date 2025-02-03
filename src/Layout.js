@@ -17,7 +17,9 @@ function Layout({ children }) {
       {!hideNavbarPaths.includes(location.pathname) && <Navbar />}
 
       {/* ページのメインコンテンツ */}
-      {children}
+      <div className="View">
+        {children}
+      </div>
 
       {/* 流れる "party!" アニメーション */}
       {partyItems.map((item) => {
@@ -49,7 +51,15 @@ function Layout({ children }) {
           </motion.div>
         );
       })}
+    <style>{`
+      .View {
+        position:relative;
+        z-index: 10;
+      }
+        `}
+    </style>
     </div>
+
   );
 }
 

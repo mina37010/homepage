@@ -8,7 +8,6 @@ function NotFound() {
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80);
     const randomFontSize = Math.random() * 5 + 2;
-    const randomZIndex = Math.floor(Math.random() * 10) + 5;
     const reverseDirection = Math.random() < 0.05;
     const id = Math.random().toString(36).substring(2, 9);
 
@@ -16,7 +15,7 @@ function NotFound() {
       id,
       y: `${randomY}%`,
       fontSize: `${randomFontSize}vw`,
-      zIndex: randomZIndex,
+      zIndex: 0,
       reverseDirection,
     };
 
@@ -41,7 +40,7 @@ function NotFound() {
   return (
     <div>
     <div className="not-found-container" style={{ textAlign: 'center', paddingTop: '50px' }}>
-      <h1 style={{ fontSize: '4rem', color: 'gray' }}>404 - Page Not Found</h1>
+      <h1 style={{ fontSize: '4rem', color: 'gray',zIndex: 1 }}>404 - Page Not Found</h1>
     </div>
       {/* 流れる "party!" アニメーション */}
       {partyItems.map((item) => {

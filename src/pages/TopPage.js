@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { useParty } from '../PartyContext';  // グローバルな状態をインポート
 
 const TopPage = () => {
-  const { partyItems } = useParty();  // グローバルな "party!" の状態を取得
 
   return (
-    <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
+    <div>
+    <div className="View">
       {/* 光の放射状ライン */}
       {[...Array(10)].map((_, i) => (
         <div
@@ -24,10 +24,8 @@ const TopPage = () => {
       <motion.h1
         className="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-pink-500 neon-glow"
         style={{
-          position: "absolute",
-          top: "40%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
+          position: "relative",
+          transform: "translate(0,200%)",
           textAlign: "center",
         }}
       >
@@ -42,37 +40,7 @@ const TopPage = () => {
           Partyに参加！
         </button>
         </motion.h1>
-
-      {/* グローバルな "party!" アニメーション */}
-      {partyItems.map((item) => {
-        const fontSizeInVw = parseFloat(item.fontSize);
-        const textWidthOffset = fontSizeInVw * 3;  // テキストの長さの概算
-
-        return (
-          <motion.div
-            key={item.id}
-            className="absolute text-yellow-400 font-bold"
-            initial={{
-              x: item.reverseDirection ? "-100%" : `${100 - textWidthOffset}vw`,
-              opacity: 1,
-            }}
-            animate={{
-              x: item.reverseDirection ? `${100 - textWidthOffset}vw` : "-100%",
-              opacity: 1,
-            }}
-            transition={{ duration: 3, ease: "linear" }}
-            style={{
-              top: item.y,
-              fontSize: item.fontSize,
-              zIndex: item.zIndex,
-              whiteSpace: "nowrap",
-              position: "absolute",
-            }}
-          >
-            party!
-          </motion.div>
-        );
-      })}
+          
 
       <style>{`
         body, html {
@@ -151,7 +119,9 @@ const TopPage = () => {
           color: #fff;
           background-image: linear-gradient(to left, #27acd9 0%, #b4e12b 100%);
         }
+
       `}</style>
+    </div>
     </div>
   );
 };

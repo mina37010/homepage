@@ -14,7 +14,6 @@ export const PartyProvider = ({ children }) => {
   const addParty = () => {
     const randomY = Math.floor(Math.random() * 80);
     const randomFontSize = Math.random() * 5 + 2;
-    const randomZIndex = -Math.floor(Math.random() * -10) - 5;
     const reverseDirection = Math.random() < 0.05;
     const id = Math.random().toString(36).substring(2, 9);
 
@@ -22,7 +21,7 @@ export const PartyProvider = ({ children }) => {
       id,
       y: `${randomY}%`,
       fontSize: `${randomFontSize}vw`,
-      zIndex: randomZIndex,
+      zIndex: 0,
       reverseDirection,
     };
 
