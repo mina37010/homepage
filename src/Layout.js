@@ -12,7 +12,7 @@ function Layout({ children }) {
   const hideNavbarPaths = ['/party'];
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
       {/* ナビゲーションバー */}
       {!hideNavbarPaths.includes(location.pathname) && <Navbar />}
 
