@@ -77,6 +77,9 @@ function NotFound() {
     .navbar {
       display: none;
     }
+    .footer {
+      display: none;
+    }
     `}</style>
     </div>
  

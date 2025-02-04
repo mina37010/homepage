@@ -68,14 +68,14 @@ body,html {
   .hamburger-menu {
     align-items: center;
     display: none;
-    font-size: 3rem;
+    font-size: 2rem;
     color: black;
     cursor: pointer;
     top: 50px;
     right: 30px;
     z-index: 10;  /* ハンバーガーメニューを前面に表示 */
     background-color: #eeeeee;
-    border-radius: 1vw;    
+    border-radius: 0.5vw;    
   }
 
   .footer {
@@ -162,7 +162,7 @@ body,html {
     background-color: white;
     padding: 10px;
     border-radius: 5px;
-    z-index:5;
+    z-index:15;
   }
 
   .nav-links.open {

@@ -60,7 +60,7 @@ import Link from './components/Link';
         <style>{`
       .View {
         position:relative;
-        z-index: 10;
+        z-index: 1;
       }
         `}
         </style>
