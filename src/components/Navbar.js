@@ -24,7 +24,7 @@ function Navbar() {
 
       {/* ナビゲーションリンク */}
       <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-        <li><Link to="/">TopPage</Link></li>
+        <li><Link to="/">Home</Link></li>
         <li><Link to="/210on">皆様と一緒!</Link></li>
       </ul>
     </nav>

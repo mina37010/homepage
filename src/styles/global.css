@@ -77,6 +77,12 @@ body,html {
     background-color: #eeeeee;
     border-radius: 1vw;    
   }
+
+  .footer {
+    color: #5a5a5a;
+    padding: 20px;
+    text-align: center;
+  }
   
   .not-found-container {
     text-align: center;
@@ -117,21 +123,20 @@ body,html {
 }
 
 .button-container {
-  margin-left: auto;
-  margin-right: auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 1fr));  /* 最大2列 */
   gap: 10px;  /* ボタン同士の間隔 */
-  margin-bottom: 40px;  /* コンテナ下部に空白 */
+  margin-bottom: 10px;  /* コンテナ下部に空白 */
+  text-align: center;
 }
 
 .site-button {
-  padding: 2vw 30px;          /* 画面幅に比例するパディング */
+  padding: 1vw 30px;          /* 画面幅に比例するパディング */
   font-size: 2vw;            /* 画面幅に基づいてフォントサイズを調整 */
   background-color: #eeeeee;
   color: #909090;
   border: none;
-  border-radius: 10vw;      /* ビューポート幅に基づく角丸 */
+  border-radius: 1vw;      /* ビューポート幅に基づく角丸 */
   cursor: pointer;
   transition: background-color 0.3s;
   width: 90%;            /* デフォルトのボタン幅を80%に設定 */

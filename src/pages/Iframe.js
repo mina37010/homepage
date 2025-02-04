@@ -13,6 +13,7 @@ const Iframe = () => {
   const location = useLocation();
 
   return (
+    <div >
     <div className="Iframe">
       <h1>なんですか、これは?</h1>
       <h2><a className='a-non a-hover' href={site[location.pathname]}>{location.pathname.replace('/', '')}</a></h2>
@@ -27,7 +28,7 @@ const Iframe = () => {
         style={{ border: 'none', marginBottom: '20px' }}
         sandbox="allow-scripts"
       ></iframe>
-
+    </div>
       {/* ボタンとしてサイトリンクを表示 */}
       <div className="button-container">
         {Object.entries(site).map(([path]) => (
