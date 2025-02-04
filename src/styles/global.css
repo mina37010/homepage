@@ -2,26 +2,50 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f8ff;
   }
   
-
-  nav ul {
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;  /* 左右に分ける */
+    align-items: center;
+    padding: 0px 20px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-container img {
+    margin-right: 10px;  /* 画像とサイト名の間に余白 */
+  }
+  
+  .site-name {
+    color: black;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
     display: flex;
     list-style: none;
-    padding: 10px;
-    background-color: #333;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
   }
   
-
-  nav ul li {
-    margin-right: 15px;
+  .nav-links li {
+    margin-right: 30px;
   }
   
-  nav ul li a {
-    color: aqua;
+  .nav-links li a {
+    font-weight: bold;
+    color: #5a5a5a;
     text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .nav-links li a:hover {
+    color: gray;  /* ホバー時の効果 */
   }
   
   .not-found-container {
@@ -78,7 +102,6 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   width: 90%;            /* デフォルトのボタン幅を80%に設定 */
-
   margin: 0 auto;        /* ボタンを横中央に配置 */
   text-align: center;
 }
