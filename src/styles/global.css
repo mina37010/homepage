@@ -164,6 +164,7 @@ body,html {
   .button-container {
     grid-template-columns: 1fr;  /* 縦一列に変更 */
   }
+
 }
 
 @media (max-width: 425px) {

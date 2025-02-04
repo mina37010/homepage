@@ -14,7 +14,7 @@ const Iframe = () => {
 
   return (
     <div className="Iframe">
-      <h1>なんですか、これは？</h1>
+      <h1>なんですか、これは?</h1>
       <h2><a className='a-non a-hover' href={site[location.pathname]}>{location.pathname.replace('/', '')}</a></h2>
 
       {/* iframe */}

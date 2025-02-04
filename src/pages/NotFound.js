@@ -74,7 +74,7 @@ function NotFound() {
       })}
 
     <style>{`
-    nav {
+    .navbar {
       display: none;
     }
     `}</style>
