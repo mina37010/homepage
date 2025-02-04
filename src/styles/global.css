@@ -2,21 +2,27 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    height: 100vh;
   }
   
+
   nav ul {
     display: flex;
     list-style: none;
     padding: 10px;
     background-color: #333;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
   }
   
+
   nav ul li {
     margin-right: 15px;
   }
   
   nav ul li a {
-    color: white;
+    color: aqua;
     text-decoration: none;
   }
   
@@ -28,4 +34,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;  /* 水平方向の中央 */
+    align-items: flex-end;      /* 垂直方向の中央 */
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    color: red;
   }
