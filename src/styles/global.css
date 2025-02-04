@@ -31,6 +31,10 @@ body,html {
   .logo-container img {
     margin-right: 10px;  /* 画像とサイト名の間に余白 */
   }
+  .asaka{
+    width:100px;
+    height:100px;
+  }
   
   .site-name {
     color: black;
@@ -62,14 +66,16 @@ body,html {
   }
 
   .hamburger-menu {
+    align-items: center;
     display: none;
     font-size: 2rem;
     color: black;
     cursor: pointer;
     position: absolute;
-    top: 10px;
+    top: 50px;
     right: 20px;
     z-index: 10;  /* ハンバーガーメニューを前面に表示 */
+    background-color: #f0f8ff;
   }
   
   .not-found-container {
@@ -163,6 +169,11 @@ body,html {
 
   .button-container {
     grid-template-columns: 1fr;  /* 縦一列に変更 */
+  }
+
+  .asaka{
+    width:50px;
+    height:50px;
   }
 
 }

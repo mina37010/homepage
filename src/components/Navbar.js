@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="navbar">
       <a className="a-non" href="/">
         <div className="logo-container">
-          <img src={asaka} alt="asaka" width="100px" height="100px" />
+          <img className="asaka "src={asaka} alt="asaka"  />
           <h1 className="site-name"><font color="red">A</font>saka.party!</h1>
         </div>
       </a>
