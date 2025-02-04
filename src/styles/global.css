@@ -64,13 +64,16 @@ body,html {
   .hamburger-menu {
     display: none;
     font-size: 2rem;
-    color: #5a5a5a;
+    color: black;
     cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10;  /* ハンバーガーメニューを前面に表示 */
   }
   
   .not-found-container {
     text-align: center;
-    background-color: #f8f8f8;
     height: 100vh;
     display: flex;
     flex-direction: column;
