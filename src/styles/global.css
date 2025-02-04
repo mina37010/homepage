@@ -48,3 +48,10 @@ body {
     text-align: center;
     color: red;
   }
+  
+  .a-non {
+    color: inherit;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+  }
