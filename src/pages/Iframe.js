@@ -25,7 +25,7 @@ const Iframe = () => {
         height="75%"
         src={site[location.pathname]}
         style={{ border: 'none', marginBottom: '20px' }}
-        sandbox="allow-top-navigation"
+        sandbox="allow-scripts"
       ></iframe>
 
       {/* ボタンとしてサイトリンクを表示 */}
