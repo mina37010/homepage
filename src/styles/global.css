@@ -1,11 +1,21 @@
-body {
+body,html {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f8ff;
+    font-size:16px
   }
   
-  
+  .relative {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    text-align: center;
+  }
+
   .navbar {
     display: flex;
     justify-content: space-between;  /* 左右に分ける */
@@ -27,6 +37,9 @@ body {
     font-size: 3rem;
     font-weight: bold;
   }
+  .site-name:hover {
+    color: #909090
+  }
   
   .nav-links {
     display: flex;
@@ -47,6 +60,13 @@ body {
   .nav-links li a:hover {
     color: gray;  /* ホバー時の効果 */
   }
+
+  .hamburger-menu {
+    display: none;
+    font-size: 2rem;
+    color: #5a5a5a;
+    cursor: pointer;
+  }
   
   .not-found-container {
     text-align: center;
@@ -61,12 +81,12 @@ body {
   .center {
     display: flex;
     justify-content: center;  /* 水平方向の中央 */
-    align-items: flex-end;      /* 垂直方向の中央 */
+    align-items: center;      /* 垂直方向の中央 */
     position: relative;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50vh;
+    width: 100vw;
+    height: 80vh;
     text-align: center;
     color: red;
   }
@@ -76,6 +96,10 @@ body {
     text-decoration: none;
     border: none;
     padding: 0;
+  }
+
+  .a-hover:hover {
+    color:#909090
   }
 
   .Iframe {
@@ -111,8 +135,36 @@ body {
 }
 
 /* メディアクエリでレスポンシブ対応 */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  body {
+    font-size:12px
+  }
+  .nav-links {
+    display: none;  /* 初期状態で非表示 */
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-links.open {
+    display: flex;  /* ハンバーガークリック時に表示 */
+  }
+
+  .hamburger-menu {
+    display: block;  /* ハンバーガーメニューを表示 */
+  }
+
   .button-container {
     grid-template-columns: 1fr;  /* 縦一列に変更 */
+  }
+}
+
+@media (max-width: 425px) {
+  body {
+    font-size:10px
   }
 }

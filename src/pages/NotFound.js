@@ -39,7 +39,7 @@ function NotFound() {
 
   return (
     <div>
-    <div className="not-found-container" style={{ textAlign: 'center', paddingTop: '50px' }}>
+    <div className="not-found-container center">
       <h1 style={{ fontSize: '4rem', color: 'gray',zIndex: 1 }}>404 - Page Not Found</h1>
     </div>
       {/* 流れる "party!" アニメーション */}
