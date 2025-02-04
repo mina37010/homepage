@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { useParty } from './PartyContext';
 import Navbar from './components/Navbar';  
 import Footer from './components/Footer';
+import Link from './components/Link';
+
   function Layout({ children }) {
     const location = useLocation();
     const { partyItems } = useParty();
@@ -19,6 +21,8 @@ import Footer from './components/Footer';
         <div className="View">
           {children}
         </div>
+        {/* リンク */}
+        {!hideNavbarPaths.includes(location.pathname) && <Link />}
         {/* フッター */}
         {!hideNavbarPaths.includes(location.pathname) && <Footer />}
 
