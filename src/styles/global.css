@@ -95,10 +95,8 @@ body,html {
   .link-section {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    align-items: center; 
   }
 
   .page-links, .social-links {
@@ -106,23 +104,17 @@ body,html {
   }
   .page-links ul, .social-links ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem; 
+    column-gap: 2rem; 
     list-style: none;
+    margin-block-start: 0.5em;
+    margin-block-end: 0em;
+    padding-inline-start: 20px;
+    margin-inline-start: 0px;
+    margin-inline-end: 20px;
   }
 
-  .page-links li .social-links li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-  }
   
   .page-links li a,.social-links li a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 2rem;  /* アイコンの大きさを調整 */
     color: #5a5a5a;
     text-decoration: none;
