@@ -301,6 +301,7 @@ body,html {
   color: #909090;
   align-items: center;
   right: 50vw; /* スライド前提を修正 */
+  text-align: center;
 }
 
 .twitter:hover .snsId,
@@ -364,16 +365,18 @@ body,html {
   }
 
   .snsId {
+    position: fixed;
     align-items: center;
-    left: 80vw; /* スライド前提を修正 */
     text-align: center;
-    bottom: 5vh;
+    left : 50vw;
+    bottom: 4vh;
   }
 
   .twitter:hover .snsId,
   .instagram:hover .snsId,
   .github:hover .snsId  {
-    left: 45vw;/* ホバー時の動きに問題がなければ維持 */
+    left :50vw;
+    bottom: 7vh;/* ホバー時の動きに問題がなければ維持 */
   }
 }
 
