@@ -21,7 +21,7 @@ body,html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
+    padding: 0 20px;
   }
   
   .logo-container {
@@ -50,6 +50,7 @@ body,html {
   .nav-links {
     display: flex;
     list-style: none;
+    align-items: center; /* 各リンクを中央揃え */
   }
   
   .nav-links li {
@@ -60,7 +61,10 @@ body,html {
     font-weight: bold;
     color: #5a5a5a;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center; 
+    height: 100%; 
   }
   
   .nav-links li a:hover {
@@ -68,16 +72,16 @@ body,html {
   }
 
   .hamburger-menu {
+    justify-content: center;
     align-items: center;
     display: none;
-    font-size: 2rem;
-    color: black;
+    position: fixed;
+    right: 20px;
     cursor: pointer;
-    top: 50px;
-    right: 30px;
     z-index: 10;
+    font-size: 3rem;
+    border-radius: 1vh; /* 角丸ボタン */
     background-color: #eeeeee;
-    border-radius: 0.5vw;    
   }
 
   /* Footer,Link*/
@@ -85,15 +89,16 @@ body,html {
   .footer {
     color: #5a5a5a;
     text-align: center;
+    border-top:1px solid #AEAEAE;
   }
 
   .link-section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
     flex-wrap: wrap;
     align-items: center;
     padding: 20px;
+    align-items: center; 
   }
 
   .page-links, .social-links {
@@ -103,16 +108,15 @@ body,html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem; /* アイコン間の余白 */
+    gap: 2rem; 
     list-style: none;
-    padding: 0;
-    margin: 0;
   }
 
   .page-links li .social-links li {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%; 
   }
   
   .page-links li a,.social-links li a{
@@ -123,6 +127,10 @@ body,html {
     color: #5a5a5a;
     text-decoration: none;
     transition: color 0.3s;
+
+  }
+  .page-links li a{
+    font-size: 1.5rem;  /* アイコンの大きさを調整 */
   }
   
   .page-links li a:hover {

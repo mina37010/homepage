@@ -19,7 +19,7 @@ function Navbar() {
         className="hamburger-menu"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        &#9776; {/* 三点リーダーアイコン */}
+        &#9776;{/* 三点リーダーアイコン */}
       </div>
 
       {/* ナビゲーションリンク */}
