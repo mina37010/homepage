@@ -10,6 +10,13 @@ const Iframe = () => {
     "/maroyaka": "https://maroyaka.party",
     "/inaniwa": "https://いなにわうどん.みんな"
   }
+
+  const username = {
+    "/210on":"ぱうろ",
+    "/nimoca": "nimoca",
+    "/maroyaka": "定積",
+    "/inaniwa": "いなにわうどん"
+  }
   const location = useLocation();
 
   return (
@@ -32,16 +39,18 @@ const Iframe = () => {
       {/* ボタンとしてサイトリンクを表示 */}
       <div className="button-container">
         {Object.entries(site).map(([path]) => (
-          <a href={path} target="_blank" rel="noopener noreferrer" key={path}>
+          <a className="a-non" href={path} target="_blank" rel="noopener noreferrer" key={path}>
             <button className="site-button">
-              {path.replace('/', '')}
+              <span>{path.replace('/', '')}</span>
+              <span className="button-username">{username[path]}</span>
             </button>
           </a>
         ))}
         {Object.entries(notAllowedSite).map(([path, url]) => (
-          <a href={url} target="_blank" rel="noopener noreferrer" key={path}>
+          <a className="a-non" href={url} target="_blank" rel="noopener noreferrer" key={path}>
             <button className="site-button">
-              {path.replace('/', '')}
+              <span>{path.replace('/', '')}</span>
+              <span className="button-username">{username[path]}</span>
             </button>
           </a>
         ))}
