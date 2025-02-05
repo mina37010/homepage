@@ -16,9 +16,10 @@ body,html {
     text-align: center;
   }
 
+  /* navbar */
   .navbar {
     display: flex;
-    justify-content: space-between;  /* 左右に分ける */
+    justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
   }
@@ -29,8 +30,9 @@ body,html {
   }
   
   .logo-container img {
-    margin-right: 10px;  /* 画像とサイト名の間に余白 */
+    margin-right: 10px;
   }
+
   .asaka{
     width:100px;
     height:100px;
@@ -62,7 +64,7 @@ body,html {
   }
   
   .nav-links li a:hover {
-    color: gray;  /* ホバー時の効果 */
+    color: gray; 
   }
 
   .hamburger-menu {
@@ -73,17 +75,61 @@ body,html {
     cursor: pointer;
     top: 50px;
     right: 30px;
-    z-index: 10;  /* ハンバーガーメニューを前面に表示 */
+    z-index: 10;
     background-color: #eeeeee;
     border-radius: 0.5vw;    
   }
 
+  /* Footer,Link*/
+
   .footer {
     color: #5a5a5a;
-    padding: 20px;
     text-align: center;
   }
+
+  .link-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .page-links, .social-links {
+    display: flex;
+  }
+  .page-links ul, .social-links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* アイコン間の余白 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-links li .social-links li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
+  .page-links li a,.social-links li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;  /* アイコンの大きさを調整 */
+    color: #5a5a5a;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .page-links li a:hover {
+    color: gray;
+  }
+  
+  /* NotFound */
   .not-found-container {
     text-align: center;
     height: 100vh;
@@ -92,11 +138,11 @@ body,html {
     justify-content: center;
     align-items: center;
   }
-
+  /* center */
   .center {
     display: flex;
-    justify-content: center;  /* 水平方向の中央 */
-    align-items: center;      /* 垂直方向の中央 */
+    justify-content: center;
+    align-items: center;
     position: relative;
     top: 0;
     left: 0;
@@ -106,6 +152,7 @@ body,html {
     color: red;
   }
   
+  /* 隠しリンク用 */
   .a-non {
     color: inherit;
     text-decoration: none;
@@ -117,6 +164,7 @@ body,html {
     color:#909090
   }
 
+  /* 埋め込み */
   .Iframe {
     text-align: center;
     height: 100vh;
@@ -148,13 +196,14 @@ body,html {
   background-color: #e0e0e0;
 }
 
-/* メディアクエリでレスポンシブ対応 */
+
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
   body,html {
     font-size:12px
   }
   .nav-links {
-    display: none;  /* 初期状態で非表示 */
+    display: none; 
     flex-direction: column;
     position: absolute;
     top: 70px;
@@ -166,20 +215,36 @@ body,html {
   }
 
   .nav-links.open {
-    display: flex;  /* ハンバーガークリック時に表示 */
+    display: flex;
   }
 
   .hamburger-menu {
-    display: block;  /* ハンバーガーメニューを表示 */
+    display: block;
   }
 
   .button-container {
-    grid-template-columns: 1fr;  /* 縦一列に変更 */
+    grid-template-columns: 1fr;
   }
 
   .asaka{
     width:50px;
     height:50px;
+  }
+
+  .link-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-links, .social-links {
+    width: 100%;
+    text-align: center;  /* リンク内のアイテムを中央に */
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .page-links ul, .social-links ul {
+    justify-content: center;
   }
 
 }

@@ -1,33 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import asaka from '../assets/images/asaka.jpeg';
+import { FaTwitter, FaGithub , FaInstagram } from 'react-icons/fa';  // 必要なアイコンをインポート
 
 function LinkList() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <nav className="navbar">
-      <a className="a-non" href="/">
-        <div className="logo-container">
-          <img className="asaka "src={asaka} alt="asaka"  />
-          <h1 className="site-name"><font color="red">A</font>saka.party!</h1>
+    <footer className="footer">
+      {/* リンク集 */}
+      <div className="link-section">
+        <div className="page-links">
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/party">about</Link></li>
+          </ul>
         </div>
-      </a>
 
-      {/* ハンバーガーメニュー */}
-      <div
-        className="hamburger-menu"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        &#9776; {/* 三点リーダーアイコン */}
+        <div className="social-links">
+          <ul>
+            <li><a className='a-non a-hover' href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
+            <li><a className='a-non a-hover' href="https://finstagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
+            <li><a className='a-non a-hover' href="https://github.com" target="_blank" rel="noopener noreferrer"><FaGithub /></a></li>
+          </ul>
+        </div>
       </div>
-
-      {/* ナビゲーションリンク */}
-      <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/210on">皆様と一緒!</Link></li>
-      </ul>
-    </nav>
+    </footer>
   );
 }
 
