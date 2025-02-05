@@ -41,16 +41,16 @@ const Iframe = () => {
         {Object.entries(site).map(([path]) => (
           <a className="a-non" href={path} target="_blank" rel="noopener noreferrer" key={path}>
             <button className="site-button">
-              <span>{path.replace('/', '')}</span>
-              <span className="button-username">{username[path]}</span>
+              <span>{username[path]}</span>
+              <span className="button-username">{site[path]}</span>
             </button>
           </a>
         ))}
         {Object.entries(notAllowedSite).map(([path, url]) => (
           <a className="a-non" href={url} target="_blank" rel="noopener noreferrer" key={path}>
             <button className="site-button">
-              <span>{path.replace('/', '')}</span>
-              <span className="button-username">{username[path]}</span>
+              <span>{username[path]}</span>
+              <span className="button-username">{notAllowedSite[path]}</span>
             </button>
           </a>
         ))}

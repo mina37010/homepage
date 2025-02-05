@@ -40,7 +40,7 @@ const Party = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
+    <div className="flex items-center justify-center h-screen bg-black overflow-hidden">
       {/* 光の放射状ライン */}
       {[...Array(10)].map((_, i) => (
         <div
