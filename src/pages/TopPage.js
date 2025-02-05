@@ -6,8 +6,8 @@ const TopPage = () => {
     <div>
       <div className='home'>
         <div className='homeA center'>
-          <h1><a className='neon-hover a-non' href='https://www.jumangoku.co.jp/'>風が語りかけます。うまい、うますぎる</a></h1>
-          <h2>埼玉銘菓 十万石まんじゅう</h2>
+          <h1><div className='neon-hover'>風が語りかけます。うまい、うますぎる</div></h1>
+          <h2><a className='a-non' href='https://www.jumangoku.co.jp/'>埼玉銘菓 十万石まんじゅう</a></h2>
         </div>
         <div className='homeB'></div>
         <div className='homeParty'>
