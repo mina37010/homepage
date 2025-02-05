@@ -57,8 +57,8 @@ body,html {
   }
 
   .asaka{
-    width:100px;
-    height:100px;
+    width:70px;
+    height:70px;
   }
   
   .site-name {
@@ -176,7 +176,6 @@ body,html {
     width: 100vw;
     height: 80vh;
     text-align: center;
-    color: red;
   }
   
   /* 隠しリンク用 */
@@ -240,6 +239,10 @@ body,html {
   opacity: 1;
 }
 
+.manzyu:hover {
+  animation: neonGlowColorCycle 5s infinite alternate;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   body,html {
@@ -271,8 +274,8 @@ body,html {
   }
 
   .asaka{
-    width:50px;
-    height:50px;
+    width:30px;
+    height:30px;
   }
 
   .link-section {

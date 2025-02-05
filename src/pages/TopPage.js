@@ -4,8 +4,7 @@ const TopPage = () => {
   return (
     <div>
       <div className='center'>
-        <h1>開発中だよん！</h1>
-        <h2><a className="a-non a-hover" href="/party">🎉</a></h2>
+        <span><h1><a className='manzyu a-non' href='https://www.jumangoku.co.jp/'>風が語りかけます。うまい、うますぎる</a></h1></span>
       </div> 
     </div>
   );
