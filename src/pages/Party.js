@@ -118,34 +118,7 @@ const Party = () => {
           }
         }
 
-        /* カラフルに変化するテキストシャドウ */
-        @keyframes neonGlowColorCycle {
-          0% {
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
-          }
-          25% {
-            text-shadow: 0 0 10px #ff00ff, 0 0 20px #7300ff, 0 0 30px #9900ff;
-          }
-          50% {
-            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ff73, 0 0 30px #00ff99;
-          }
-          75% {
-            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff7300, 0 0 30px #ff0000;
-          }
-          100% {
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
-          }
-        }
 
-        @media (max-width: 768px) {
-          h1 {
-            font-size: 6vw;
-          }
-        }
-
-        .neon-glow {
-          animation: neonGlowColorCycle 5s infinite alternate;
-        }
 
         button {
             display: block;

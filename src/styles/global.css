@@ -16,6 +16,29 @@ body,html {
     text-align: center;
   }
 
+    /* カラフルに変化するテキストシャドウ */
+  @keyframes neonGlowColorCycle {
+    0% {
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
+    }
+    25% {
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #7300ff, 0 0 30px #9900ff;
+    }
+    50% {
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ff73, 0 0 30px #00ff99;
+    }
+    75% {
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff7300, 0 0 30px #ff0000;
+    }
+    100% {
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
+    }
+  }
+
+  .neon-glow {
+    animation: neonGlowColorCycle 5s infinite alternate;
+  }
+
   /* navbar */
   .navbar {
     display: flex;
@@ -44,7 +67,7 @@ body,html {
     font-weight: bold;
   }
   .site-name:hover {
-    color: #909090
+    animation: neonGlowColorCycle 5s infinite alternate;
   }
   
   .nav-links {
@@ -100,6 +123,7 @@ body,html {
 
   .page-links, .social-links {
     display: flex;
+    align-items: center;
   }
   .page-links ul, .social-links ul {
     display: flex;
@@ -110,6 +134,7 @@ body,html {
     padding-inline-start: 20px;
     margin-inline-start: 0px;
     margin-inline-end: 20px;
+    
   }
 
   
@@ -118,10 +143,14 @@ body,html {
     color: #5a5a5a;
     text-decoration: none;
     transition: color 0.3s;
+    align-items: center;
+    
 
   }
   .page-links li a{
+    
     font-size: 1.5rem;  /* アイコンの大きさを調整 */
+
   }
   
   .page-links li a:hover {
