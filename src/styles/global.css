@@ -278,7 +278,7 @@ body,html {
 }
 
 .button-username {
-  font-size :0.5em;
+  font-size :0.6em;
   white-space: nowrap;
   position: relative;
   right: 0px; /* 初期位置：ボタンの左側に隠す */

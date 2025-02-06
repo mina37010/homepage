@@ -42,7 +42,7 @@ const Iframe = () => {
           <a className="a-non" href={path} target="_blank" rel="noopener noreferrer" key={path}>
             <button className="site-button">
               <span>{username[path]}</span>
-              <span className="button-username">{site[path]}</span>
+              <span className="button-username">{site[path].replace('https://','')}</span>
             </button>
           </a>
         ))}
@@ -50,7 +50,7 @@ const Iframe = () => {
           <a className="a-non" href={url} target="_blank" rel="noopener noreferrer" key={path}>
             <button className="site-button">
               <span>{username[path]}</span>
-              <span className="button-username">{notAllowedSite[path]}</span>
+              <span className="button-username">{notAllowedSite[path].replace('https://','')}</span>
             </button>
           </a>
         ))}
