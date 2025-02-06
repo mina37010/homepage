@@ -293,21 +293,21 @@ body,html {
 
 .snsId {
   display: flex;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   white-space: nowrap;
   position: absolute;
   opacity: 0;
   transition: all 0.5s ease;
   color: #909090;
   align-items: center;
-  right: 50vw; /* スライド前提を修正 */
+  right: 30rem; /* スライド前提を修正 */
   text-align: center;
 }
 
 .twitter:hover .snsId,
 .instagram:hover .snsId,
 .github:hover .snsId  {
-  right: 15vw;/* ホバー時の動きに問題がなければ維持 */
+  right: 14rem;/* ホバー時の動きに問題がなければ維持 */
   opacity: 1;
 }
 
@@ -365,18 +365,17 @@ body,html {
   }
 
   .snsId {
-    position: fixed;
     align-items: center;
     text-align: center;
-    left : 50vw;
-    bottom: 4vh;
+    right: 35vw;
+    bottom:1em;
   }
 
   .twitter:hover .snsId,
   .instagram:hover .snsId,
   .github:hover .snsId  {
-    left :50vw;
-    bottom: 7vh;/* ホバー時の動きに問題がなければ維持 */
+    right: 35vw;
+    bottom:2.7em;
   }
 }
 
