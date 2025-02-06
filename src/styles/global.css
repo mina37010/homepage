@@ -129,6 +129,8 @@ body,html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
+    width: 100vw;
   }
 
   .page-links, .social-links {
@@ -136,6 +138,7 @@ body,html {
     align-items: center;
   }
   .page-links ul, .social-links ul {
+    
     display: flex;
     column-gap: 2rem; 
     list-style: none;
@@ -153,6 +156,8 @@ body,html {
     margin: 20px;
     display: flex;
     text-align: right;
+    height: 100%;
+    width: 100%;
   }
   
   .page-links li a,.social-links li a{
@@ -291,26 +296,30 @@ body,html {
   align-items: center;
 }
 
-.snsId {
-  display: flex;
-  font-size: 1.5rem;
-  white-space: nowrap;
-  position: absolute;
-  opacity: 0;
-  transition: all 0.5s ease;
-  color: #909090;
-  align-items: center;
-  right: 30rem; /* スライド前提を修正 */
-  text-align: center;
-}
 
-.twitter:hover .snsId,
-.instagram:hover .snsId,
-.github:hover .snsId  {
-  right: 14rem;/* ホバー時の動きに問題がなければ維持 */
-  opacity: 1;
-}
 
+@media (min-width: 768px) {
+  .snsId {
+    display: flex;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease;
+    color: #909090;
+    align-items: center;
+    right: 30rem; /* スライド前提を修正 */
+    text-align: center;
+  }
+  
+  
+  .twitter:hover .snsId,
+  .instagram:hover .snsId,
+  .github:hover .snsId  {
+    right: 12rem;/* ホバー時の動きに問題がなければ維持 */
+    opacity: 1;
+  }
+}
 
 
 /* レスポンシブ対応 */
@@ -353,29 +362,25 @@ body,html {
     align-items: center;
   }
 
-  .page-links, .social-links {
-    width: 100%;
-    text-align: center;  /* リンク内のアイテムを中央に */
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-  
-  .page-links ul, .social-links ul {
-    justify-content: center;
-  }
-
   .snsId {
+    display: flex;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease;
+    color: #909090;
     align-items: center;
+    left:50vw;
     text-align: center;
-    right: 35vw;
-    bottom:1em;
+    transform: translate(-50%,3rem);
   }
 
   .twitter:hover .snsId,
   .instagram:hover .snsId,
   .github:hover .snsId  {
-    right: 35vw;
-    bottom:2.7em;
+    opacity: 1;
+    transform: translate(-50%,2rem);
   }
 }
 
