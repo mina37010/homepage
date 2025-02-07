@@ -225,9 +225,10 @@ body,html {
     padding: 0.5rem 1em;
     margin: 0 0;
     font-weight: bold;
+    box-shadow: 5px 5px 5px #5a5a5a;
   }
   .zBarBox:hover{
-    box-shadow: 5px 5px 5px #5a5a5a;
+    box-shadow: none;
   }
 
   

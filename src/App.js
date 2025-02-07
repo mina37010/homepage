@@ -4,6 +4,7 @@ import TopPage from './pages/TopPage';
 import NotFound from './pages/NotFound';
 import Party from './pages/Party';
 import Iframe from './pages/Iframe';
+import Shinratsu from './pages/shinratsu';
 import Layout from './Layout';
 import { PartyProvider } from './PartyContext';
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/party" element={<Party />} />
             <Route path="/210on" element={<Iframe />} />
+            <Route path="/shinratsu" element={<Shinratsu />} />
           </Routes>
         </Layout>
       </PartyProvider>
