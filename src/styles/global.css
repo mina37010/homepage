@@ -220,10 +220,10 @@ body,html {
   }
 
   .zBarBox {
+    margin-left:1rem;
     border-radius: 1vw;      /* ビューポート幅に基づく角丸 */
     border: solid 1px #5a5a5a;
     padding: 0.5rem 1em;
-    margin: 0 0;
     font-weight: bold;
     box-shadow: 5px 5px 5px #5a5a5a;
   }

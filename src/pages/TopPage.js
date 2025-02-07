@@ -1,5 +1,6 @@
 import React from 'react';
 import { LuPartyPopper } from "react-icons/lu";
+import { PiMountainsFill } from "react-icons/pi";
 
 const TopPage = () => {
   return (
@@ -12,12 +13,16 @@ const TopPage = () => {
         <div className='homeB'></div>
         <div className='homeParty'>
           <div className='homePartybar'>
+              <a className='a-non a-hover' href='/shinratsu'>
+                <div className='zBarBox'>
+                <PiMountainsFill />
+                </div>
+              </a>
               <a className='a-non a-hover' href='/party'>
                 <div className='zBarBox'>
                   <LuPartyPopper />
                 </div>
               </a>
-            
           </div>
         </div>
       </div> 
