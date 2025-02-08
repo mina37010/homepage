@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import shinratsuPic from '../assets/images/shinratsu.webp';
 import maroyakaPic from '../assets/images/maroyaka.webp';
+import sanmiPic from '../assets/images/sanmi.webp';
+import nigamiPic from '../assets/images/nigami.webp';
 import { MdDoorBack } from "react-icons/md";
 
 const Shinratsu = () => {
   const [clickedImage, setClickedImage] = useState('');
   const [isFullView, setIsFullView] = useState(false); // トグル用
+  const [is210on, setIs210on] = useState(false);
+
+  const handle210onClick = () => {
+    setIs210on(!is210on);  // ボタンが押されたら210onをTrueにする
+  };
 
   // クリック時に画像とブラーの切り替えを行う
   const handleImageClick = (image) => {
@@ -35,31 +42,74 @@ const Shinratsu = () => {
       >
         <MdDoorBack />
       </button></a>
+      <button 
+            onClick={handle210onClick} 
+            className={`toggle-button ${is210on ? 'isclicked' : ''}`}
+            onMouseEnter={(e) => (e.target.style.opacity = '0.8')}
+            onMouseLeave={(e) => (e.target.style.opacity = '1')}
+        >
+        210on
+      </button>
       {/* メイン画像 */}
-      <div className={`shinText ${clickedImage === 'shinratsu' && isFullView ? 'visibleText' : ''}`}>
-        <h1 className='h1Text'>辛辣波乱</h1>
+      <div className={`${is210on ? 'NoImage' : 'OnImage'}`}>
+        <div className={`shinText ${clickedImage === 'shinratsu' && isFullView ? 'visibleText' : ''}`}>
+            <h1 className='h1Text'>辛辣波乱</h1>
+        </div>
+        <div className={`maroText ${clickedImage === 'maroyaka' && isFullView ? 'visibleText' : ''}`}>
+            <h1 className='h1Text'>まろやか平和</h1>
+        </div>
+        <div className='shinratsuPage'>
+            <img 
+                className={`shinratsu ${clickedImage === 'shinratsu' && isFullView ? 'animate' : ''}`} 
+                src={shinratsuPic} 
+                alt="shinratsu" 
+                onClick={() => handleImageClick('shinratsu')}
+            />
+            <img 
+                className={`maroyaka ${clickedImage === 'maroyaka' && isFullView ? 'animate' : ''}`} 
+                src={maroyakaPic} 
+                alt="maroyaka" 
+                onClick={() => handleImageClick('maroyaka')}
+            />
+            {/* 状態に応じたブラー画像 */}
+            <img className={`blurredShinratsuHalf ${clickedImage === 'shinratsu' && isFullView ? 'blurredFull' :clickedImage === 'shinratsu' ? 'fullFront' : 'fullBack'}`} src={shinratsuPic} alt="blurred half shinratsu" />
+            <img className={`blurredMaroyakaHalf ${clickedImage === 'maroyaka' && isFullView ? 'blurredFull' : clickedImage === 'maroyaka'  ? 'fullFront': 'fullBack'}`} src={maroyakaPic} alt="blurred half maroyaka" />
+        </div>
       </div>
-      <div className={`maroText ${clickedImage === 'maroyaka' && isFullView ? 'visibleText' : ''}`}>
-        <h1 className='h1Text'>まろやか平和</h1>
+      <div className={`absolute ${is210on ? 'OnImage' : 'NoImage'}`}>
+        <div className={`shinText ${clickedImage === 'shinratsu' && isFullView ? 'visibleText' : ''}`}>
+            <h1 className='h1Text'>シャープな苦味</h1>
+        </div>
+        <div className={`maroText ${clickedImage === 'maroyaka' && isFullView ? 'visibleText' : ''}`}>
+            <h1 className='h1Text'>まろやか酸味</h1>
+        </div>
+        <div className='shinratsuPage'>
+            <img 
+                className={`shinratsu ${clickedImage === 'shinratsu' && isFullView ? 'animate' : ''}`} 
+                src={nigamiPic} 
+                alt="nigami" 
+                onClick={() => handleImageClick('shinratsu')}
+            />
+            <img 
+                className={`maroyaka ${clickedImage === 'maroyaka' && isFullView ? 'animate' : ''}`} 
+                src={sanmiPic} 
+                alt="sanmi" 
+                onClick={() => handleImageClick('maroyaka')}
+            />
+            {/* 状態に応じたブラー画像 */}
+            <img className={`blurredShinratsuHalf ${clickedImage === 'shinratsu' && isFullView ? 'blurredFull' :clickedImage === 'shinratsu' ? 'fullFront' : 'fullBack'}`} src={nigamiPic} alt="blurred half nigami" />
+            <img className={`blurredMaroyakaHalf ${clickedImage === 'maroyaka' && isFullView ? 'blurredFull' : clickedImage === 'maroyaka'  ? 'fullFront': 'fullBack'}`} src={sanmiPic} alt="blurred half sanimi" />
+        </div>
       </div>
-    <div className='shinratsuPage'>
-      <img 
-        className={`shinratsu ${clickedImage === 'shinratsu' && isFullView ? 'animate' : ''}`} 
-        src={shinratsuPic} 
-        alt="shinratsu" 
-        onClick={() => handleImageClick('shinratsu')}
-      />
-      <img 
-        className={`maroyaka ${clickedImage === 'maroyaka' && isFullView ? 'animate' : ''}`} 
-        src={maroyakaPic} 
-        alt="maroyaka" 
-        onClick={() => handleImageClick('maroyaka')}
-      />
-      {/* 状態に応じたブラー画像 */}
-          <img className={`blurredShinratsuHalf ${clickedImage === 'shinratsu' && isFullView ? 'blurredFull' :clickedImage === 'shinratsu' ? 'fullFront' : 'fullBack'}`} src={shinratsuPic} alt="blurred half shinratsu" />
-          <img className={`blurredMaroyakaHalf ${clickedImage === 'maroyaka' && isFullView ? 'blurredFull' : clickedImage === 'maroyaka'  ? 'fullFront': 'fullBack'}`} src={maroyakaPic} alt="blurred half maroyaka" />
-      </div>
+
       <style>{`
+
+        .absolute{
+            position: absolute;
+            top: 0;
+            left:0;
+        }
+
         .shinratsuPage {
           display: flex;
           width: 100vw;
@@ -163,6 +213,37 @@ const Shinratsu = () => {
             transition-property: opacity;
             opacity:1;
         }
+
+          .toggle-button {
+            padding: 10px 15px;
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #555;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 20;
+            opacity : 1;
+          }
+
+          .isclicked{
+            color: white;
+          }
+
+          .NoImage{
+            opacity:0;
+            transition: opacity 1s ease;
+          }
+
+          .OnImage{
+            opacity:1;
+            transition: opacity 1s ease;
+          }
+
 
         @media (min-aspect-ratio: 1/1) {
           .shinratsu, .maroyaka {
