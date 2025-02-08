@@ -339,6 +339,7 @@ body,html {
     align-items: center;
     right: 30rem; /* スライド前提を修正 */
     text-align: center;
+    pointer-events: none;
   }
   
   
@@ -403,6 +404,7 @@ body,html {
     left:50vw;
     text-align: center;
     transform: translate(-50%,3rem);
+    pointer-events: none;
   }
 
   .twitter:hover .snsId,
