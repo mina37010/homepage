@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+
 const Iframe = () => {
   const site = {
     "/210on": "https://210o.net",
@@ -21,14 +22,16 @@ const Iframe = () => {
   }
   const location = useLocation();
 
+  const isContact = location.pathname === '/link';
+
   return (
-    <div >
-    <div className="Iframe">
+    <div>
+    <div className={`Iframe ${isContact ? 'NoIframe' : ''}`}>
       <h1>なんですか、これは?</h1>
       <h2><a className='a-non a-hover' href={site[location.pathname]}>{location.pathname.replace('/', '')}</a></h2>
 
       {/* iframe */}
-      <iframe
+      <iframe     
         id="inlineFrame"
         title={location.pathname}
         width="95%"
@@ -37,6 +40,9 @@ const Iframe = () => {
         style={{ border: 'none', marginBottom: '20px' }}
         sandbox="allow-scripts"
       ></iframe>
+    </div>
+    <div className={`center ${isContact ? '' : 'NoIframe'}`}>
+      <h1>皆様のリンク集！</h1>
     </div>
       {/* ボタンとしてサイトリンクを表示 */}
       <div className="button-container">
@@ -57,6 +63,12 @@ const Iframe = () => {
           </a>
         ))}
       </div>
+
+      <style>{`
+        .NoIframe{
+          display:none;
+        }
+      `}</style>
     </div>
   );
 };

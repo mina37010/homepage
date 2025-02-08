@@ -22,6 +22,7 @@ function App() {
             <Route path="/inaniwa" element={<Iframe />} />
             <Route path="/nimoca" element={<Iframe />} />
             <Route path="/maroyaka" element={<Iframe />} />
+            <Route path="/link" element={<Iframe />} />
             {/*
             
              */}
