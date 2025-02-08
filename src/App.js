@@ -19,9 +19,12 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/party" element={<Party />} />
             <Route path="/210on" element={<Iframe />} />
-            {/*<Route path="/nimoca" element={<Iframe />} />
+            <Route path="/inaniwa" element={<Iframe />} />
+            <Route path="/nimoca" element={<Iframe />} />
             <Route path="/maroyaka" element={<Iframe />} />
-            <Route path="/inaniwa" element={<Iframe />} /> */}
+            {/*
+            
+             */}
             <Route path="/shinratsu" element={<Shinratsu />} />
           </Routes>
         </Layout>

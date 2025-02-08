@@ -3,12 +3,13 @@ import { useLocation } from 'react-router-dom';
 
 const Iframe = () => {
   const site = {
-    "/210on": "https://210o.net"
+    "/210on": "https://210o.net",
+    "/inaniwa": "https://いなにわうどん.みんな",
+    "/nimoca": "https://nimoca.vercel.app",
+    "/maroyaka": "https://maroyaka.party"
   };
   const notAllowedSite = {
-    "/nimoca": "https://nimoca.vercel.app",
-    "/maroyaka": "https://maroyaka.party",
-    "/inaniwa": "https://いなにわうどん.みんな"
+
   }
 
   const username = {

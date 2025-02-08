@@ -10,7 +10,6 @@ function LinkList() {
         <div className="page-links">
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/party">about</Link></li>
           </ul>
         </div>
 

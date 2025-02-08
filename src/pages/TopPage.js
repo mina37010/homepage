@@ -7,10 +7,25 @@ const TopPage = () => {
     <div>
       <div className='home'>
         <div className='homeA center'>
-          <h1><div className='neon-hover'>風が語りかけます。うまい、うますぎる</div></h1>
-          <h2><a className='a-non' href='https://www.jumangoku.co.jp/'>埼玉銘菓 十万石まんじゅう</a></h2>
+          <h1>多分テキスト</h1>
         </div>
-        <div className='homeB'></div>
+        <div className='homeB center'>
+          <h1>多分Blog</h1>
+        </div>
+        <div className='homeC center'>
+          <h1>多分画像</h1>
+        </div>
+        <div className='homeD center'>
+          <h1>多分他人リンク</h1>
+        </div>
+
+        <div className='homeE center'>
+          <div>
+            <h1>多分、風</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8lx0vLTH_yg?si=-OcWECpUX2OmoAEx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+
         <div className='homeParty'>
           <div className='homePartybar'>
               <a className='a-non a-hover' href='/shinratsu'>
