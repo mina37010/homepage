@@ -282,7 +282,7 @@ body,html {
   grid-template-columns: repeat(2, minmax(200px, 1fr));  /* 最大2列 */
   gap: 10px;  /* ボタン同士の間隔 */
   margin-bottom: 30px;  /* コンテナ下部に空白 */
-  height : 20vh;
+  height : 25%;
   text-align: center;    
 }
 

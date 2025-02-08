@@ -9,14 +9,15 @@ const Iframe = () => {
     "/maroyaka": "https://maroyaka.party"
   };
   const notAllowedSite = {
-
+    "/churu": "https://itsu.dev"
   }
 
   const username = {
     "/210on":"ぱうろ",
     "/nimoca": "nimoca",
     "/maroyaka": "定積",
-    "/inaniwa": "いなにわうどん"
+    "/inaniwa": "いなにわうどん",
+    "/churu": "ちゅるり"
   }
   const location = useLocation();
 
