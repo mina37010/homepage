@@ -21,11 +21,9 @@ const TopPage = () => {
     };
   
     useEffect(() => {
-      const interval = setInterval(() => {
-        goToNextImage();
-      }, 5000); // 自動で5秒ごとに次の画像に切り替え
+      const interval = setInterval(goToNextImage, 5000);
       return () => clearInterval(interval);
-    }, []);
+    }, [goToNextImage]);
   
   
   return (
