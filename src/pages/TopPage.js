@@ -1,7 +1,7 @@
 import React from 'react';
 import { LuPartyPopper } from "react-icons/lu";
 import { PiMountainsFill } from "react-icons/pi";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback  } from 'react';
 import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 const TopPage = () => {
     const images = [
@@ -12,19 +12,19 @@ const TopPage = () => {
   
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const goToNextImage = () => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-  
-    const goToPrevImage = () => {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-  
-    useEffect(() => {
-      const interval = setInterval(goToNextImage, 5000);
-      return () => clearInterval(interval);
-    }, [goToNextImage]);
-  
+  // 依存関係を安定化するために useCallback でラップする
+  const goToNextImage = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  }, [images.length]);
+
+  const goToPrevImage = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  }, [images.length]);
+
+  useEffect(() => {
+    const interval = setInterval(goToNextImage, 5000);
+    return () => clearInterval(interval); // クリーンアップ
+  }, [goToNextImage]);
   
   return (
     <div>
