@@ -38,7 +38,7 @@ const TopPage = () => {
               key={index}
               className={`imageWrapper ${index === currentIndex ? 'active' : ''}`}
             >
-              <img className="linkImage"  src={image.src} alt={`Image ${index + 1}`} />
+              <img className="linkImage" src={image.src} alt={image.text} />
               <a href={image.link}><div className="hoverOverlay" >
                 <div className="overlayText">
                 <h1>{image.text}</h1>
