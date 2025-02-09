@@ -1,8 +1,24 @@
 import React from 'react';
 import { LuPartyPopper } from "react-icons/lu";
 import { PiMountainsFill } from "react-icons/pi";
-
+import { useState, useEffect } from 'react';
 const TopPage = () => {
+    const images = [
+      {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
+      {src:'https://pbs.twimg.com/profile_images/1722595990803447808/KzZAqAZR_400x400.png',text:'ちゅるり',link:"https://itsu.dev"},
+      {src:'https://pbs.twimg.com/profile_images/1876704743046967296/WRa_prYp_400x400.png',text:'ぱうろ',link:"https://210o.net"},
+    ];
+  
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 6000); // 6秒ごとに切り替え
+  
+      return () => clearInterval(interval); // クリーンアップ
+    }, [images.length]);
+  
   return (
     <div>
       <div className='home'>
@@ -16,7 +32,22 @@ const TopPage = () => {
           <h1>多分画像</h1>
         </div>
         <div className='homeD center'>
-          <h1>多分他人リンク</h1>
+        <div className="linkContainer">
+        {images.map((image, index) => (
+            <div
+              key={index}
+              className={`imageWrapper ${index === currentIndex ? 'active' : ''}`}
+            >
+              <img className="linkImage"  src={image.src} alt={`Image ${index + 1}`} />
+              <a href={image.link}><div className="hoverOverlay" >
+                <div className="overlayText">
+                <h1>{image.text}</h1>
+                <p>{image.link.replace("https://","")}</p>
+                </div>
+              </div></a>
+            </div>
+          ))}
+        </div>
         </div>
 
         <div className='homeE center'>
