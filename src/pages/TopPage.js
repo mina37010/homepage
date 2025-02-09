@@ -2,6 +2,7 @@ import React from 'react';
 import { LuPartyPopper } from "react-icons/lu";
 import { PiMountainsFill } from "react-icons/pi";
 import { useState, useEffect } from 'react';
+import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 const TopPage = () => {
     const images = [
       {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
@@ -10,14 +11,22 @@ const TopPage = () => {
     ];
   
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const goToNextImage = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+  
+    const goToPrevImage = () => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    };
   
     useEffect(() => {
       const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 6000); // 6秒ごとに切り替え
+        goToNextImage();
+      }, 5000); // 自動で5秒ごとに次の画像に切り替え
+      return () => clearInterval(interval);
+    }, []);
   
-      return () => clearInterval(interval); // クリーンアップ
-    }, [images.length]);
   
   return (
     <div>
@@ -47,12 +56,19 @@ const TopPage = () => {
               </div></a>
             </div>
           ))}
+          {/* ナビゲーションボタン */}
+          <button className="navButton prevButton" onClick={goToPrevImage}>
+          <SlArrowLeft />
+          </button>
+          <button className="navButton nextButton" onClick={goToNextImage}>
+          <SlArrowRight />
+          </button>
         </div>
         </div>
 
         <div className='homeE center'>
           <div>
-            <h1>多分、風</h1>
+            <h1>多分、風。</h1>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/8lx0vLTH_yg?si=-OcWECpUX2OmoAEx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>

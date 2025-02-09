@@ -370,12 +370,10 @@ body,html {
 
 .overlayText {
   color: white;
-  text-align: center;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition:opacity 0.3s ease-in-out;
   opacity: 0;
 }
 
-/* ホバー効果 */
 .imageWrapper:hover .linkImage {
   filter: brightness(0.7);
 }
@@ -385,7 +383,6 @@ body,html {
 }
 
 .imageWrapper:hover .overlayText {
-  transform: translateY(0);
   opacity: 1;
 }
 
@@ -394,12 +391,33 @@ body,html {
   height: 100%;
   object-fit: cover;
   opacity: 1;
-
   transition: opacity 0.5s ease-in-out;
 }
 
-.linkImage.active {
-  opacity: 1;
+/* ナビゲーションボタン */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
 }
 
 @media (min-width: 768px) {
