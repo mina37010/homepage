@@ -48,7 +48,7 @@ const Iframe = () => {
       {/* ボタンとしてサイトリンクを表示 */}
       <div className="button-container">
         {Object.entries(site).map(([path]) => (
-          <a className="a-non" href={path} target="_blank" rel="noopener noreferrer" key={path}>
+          <a className="a-non" href={path} rel="noopener noreferrer" key={path}>
             <button className="site-button">
               <span>{username[path]}</span>
               <span className="button-username">{site[path].replace('https://','')}</span>

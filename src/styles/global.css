@@ -197,7 +197,7 @@ body,html {
   /* Home */
   .home{
     display: grid;
-    grid-template-rows: 40vh 40vh 20vh 10vh; /*縦*/
+    grid-template-rows: 40vh 30vh 20vh 10vh; /*縦*/
     grid-template-columns: 1fr 1fr 1fr; /*横*/
   }
   .homeA{
@@ -231,6 +231,7 @@ body,html {
   }
 
   .homeParty{
+    border:1px solid #AEAEAE;
     grid-row: 4/5;
 	  grid-column: 3/4;
   }
@@ -339,7 +340,7 @@ body,html {
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .imageWrapper:not(.active) {
@@ -348,8 +349,6 @@ body,html {
 }
 
 .linkImage {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
@@ -378,6 +377,7 @@ body,html {
   filter: brightness(0.7);
 }
 
+
 .imageWrapper:hover .hoverOverlay {
   opacity: 1;
 }
@@ -405,6 +405,7 @@ body,html {
   padding: 10px 5px;
   cursor: pointer;
   font-size: 18px;
+  z-index:3;
   transition: background-color 0.3s ease;
 }
 
@@ -505,6 +506,41 @@ body,html {
   .github:hover .snsId  {
     opacity: 1;
     transform: translate(-50%,2rem);
+  }
+
+  /* Home */
+  .home{
+    display: block;
+    width: 100vw;
+  }
+  .homeA{
+    width: 100%;
+    height: 100vh;
+  }
+
+  .homeD{
+    aspect-ratio: 64/9;
+    width: 100%;
+  }
+
+  .homeB{
+    width: 100%;
+
+  }
+
+  .homeC{
+    width: 100%;
+
+  }
+
+  .homeE{
+    width: 100%;
+
+  }
+
+  .homeParty{
+    width: 100%;
+    height: 10vh;
   }
 }
 

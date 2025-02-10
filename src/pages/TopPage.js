@@ -8,6 +8,7 @@ const TopPage = () => {
       {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
       {src:'https://pbs.twimg.com/profile_images/1722595990803447808/KzZAqAZR_400x400.png',text:'ちゅるり',link:"https://itsu.dev"},
       {src:'https://pbs.twimg.com/profile_images/1876704743046967296/WRa_prYp_400x400.png',text:'ぱうろ',link:"https://210o.net"},
+      {src:'https://pbs.twimg.com/profile_images/1670775795898544128/GT-UPbqy_400x400.jpg',text:'定積',link:"https://maroyaka.party"},
     ];
   
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,6 +42,11 @@ const TopPage = () => {
         <div className='homeC center'>
           <h1>多分画像</h1>
         </div>
+        <div className='homeE center'>
+          <div>
+            <h1>多分、風。</h1>
+          </div>
+        </div>
         <div className='homeD center'>
         <div className="linkContainer">
         {images.map((image, index) => (
@@ -48,32 +54,27 @@ const TopPage = () => {
               key={index}
               className={`imageWrapper ${index === currentIndex ? 'active' : ''}`}
             >
+            <a href={image.link}>
+              <h1 className='siteText center' style={{position:"absolute",zIndex:3,color:"#000",top:"-50%",textShadow:"1px 1px 5px white"}}>皆様のサイト</h1>
               <img className="linkImage" src={image.src} alt={image.text} />
-              <a href={image.link}><div className="hoverOverlay" >
+              <div className="hoverOverlay" >
                 <div className="overlayText">
                 <h1>{image.text}</h1>
                 <p>{image.link.replace("https://","")}</p>
                 </div>
               </div></a>
+            {/* ナビゲーションボタン */}
+            <button className="navButton prevButton" onClick={goToPrevImage}>
+            <SlArrowLeft />
+            </button>
+            <button className="navButton nextButton" onClick={goToNextImage}>
+            <SlArrowRight />
+            </button>
             </div>
           ))}
-          {/* ナビゲーションボタン */}
-          <button className="navButton prevButton" onClick={goToPrevImage}>
-          <SlArrowLeft />
-          </button>
-          <button className="navButton nextButton" onClick={goToNextImage}>
-          <SlArrowRight />
-          </button>
-        </div>
-        </div>
 
-        <div className='homeE center'>
-          <div>
-            <h1>多分、風。</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/8lx0vLTH_yg?si=-OcWECpUX2OmoAEx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
         </div>
-
+        </div>
         <div className='homeParty'>
           <div className='homePartybar'>
               <a className='a-non a-hover' href='/shinratsu'>
@@ -90,18 +91,21 @@ const TopPage = () => {
         </div>
       </div> 
       <style>{`
+      
       .yet {
         display : none;
       }
 
-      @media (max-width: 768px) {
-        .yet{
-          display: flex;
-        }
+      .siteText{
+        transition: opacity 0.3s ease-in-out;
+      }
+      .imageWrapper:hover .siteText{
+        opacity:0;
+      }
 
-        .homeA,.homeB,.homeC,.homeD,.homeE {
-          display:none;
-        }
+      @media (max-width: 768px) {
+
+
       }
       `}</style>
     </div>
