@@ -7,10 +7,11 @@ const Iframe = () => {
     "/210on": "https://210o.net",
     "/inaniwa": "https://いなにわうどん.みんな",
     "/nimoca": "https://nimoca.vercel.app",
-    "/maroyaka": "https://maroyaka.party"
+    "/maroyaka": "https://maroyaka.party",
+    "/churu": "https://itsu.dev"
   };
   const notAllowedSite = {
-    "/churu": "https://itsu.dev"
+    
   }
 
   const username = {

@@ -28,6 +28,9 @@ const TopPage = () => {
   
   return (
     <div>
+      <div className='yet relative'>
+        <h1>スマホ版ページは調整中！</h1>
+      </div>
       <div className='home'>
         <div className='homeA center'>
           <h1>多分テキスト</h1>
@@ -86,6 +89,21 @@ const TopPage = () => {
           </div>
         </div>
       </div> 
+      <style>{`
+      .yet {
+        display : none;
+      }
+
+      @media (max-width: 768px) {
+        .yet{
+          display: flex;
+        }
+
+        .home{
+          display:none;
+        }
+      }
+      `}</style>
     </div>
   );
 };
