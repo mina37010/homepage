@@ -99,7 +99,7 @@ const TopPage = () => {
           display: flex;
         }
 
-        .home{
+        .homeA,.homeB,.homeC,.homeD,.homeE {
           display:none;
         }
       }
