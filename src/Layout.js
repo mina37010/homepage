@@ -11,7 +11,7 @@ import Link from './components/Link';
     const { partyItems } = useParty();
 
     // ナビゲーションを表示しないパスのリスト
-    const hideNavbarPaths = ['/party','/shinratsu','/mac'];
+    const hideNavbarPaths = ['/party','/shinratsu','DVD'];
 
     return (
       <div style={{ position: 'relative', minHeight: '100vh' }}>

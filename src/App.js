@@ -5,7 +5,6 @@ import NotFound from './pages/NotFound';
 import Party from './pages/Party';
 import Iframe from './pages/Iframe';
 import Shinratsu from './pages/shinratsu';
-import Mac from './pages/Mac';
 import DVD from './pages/DVD';
 
 import Layout from './Layout';
@@ -28,7 +27,6 @@ function App() {
             <Route path="/churu" element={<Iframe />} />
             <Route path="/link" element={<Iframe />} />
             <Route path="/shinratsu" element={<Shinratsu />} />
-            <Route path="/mac" element={<Mac />} />
             <Route path="/DVD" element={<DVD />} />
           </Routes>
         </Layout>
