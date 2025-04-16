@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound';
 import Party from './pages/Party';
 import Iframe from './pages/Iframe';
 import Shinratsu from './pages/shinratsu';
+import Mac from './pages/Mac';
 import Layout from './Layout';
 import { PartyProvider } from './PartyContext';
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/churu" element={<Iframe />} />
             <Route path="/link" element={<Iframe />} />
             <Route path="/shinratsu" element={<Shinratsu />} />
+            <Route path="/mac" element={<Mac />} />
           </Routes>
         </Layout>
       </PartyProvider>
