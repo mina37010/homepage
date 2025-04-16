@@ -1,6 +1,7 @@
 import React from 'react';
 import { LuPartyPopper } from "react-icons/lu";
 import { PiMountainsFill } from "react-icons/pi";
+import { GiCompactDisc } from "react-icons/gi";
 import { useState, useEffect, useCallback  } from 'react';
 import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 const TopPage = () => {
@@ -77,6 +78,11 @@ const TopPage = () => {
         </div>
         <div className='homeParty'>
           <div className='homePartybar'>
+              <a className='a-non a-hover' href='/DVD'>
+                <div className='zBarBox'>
+                <GiCompactDisc />
+                </div>
+              </a>
               <a className='a-non a-hover' href='/shinratsu'>
                 <div className='zBarBox'>
                 <PiMountainsFill />
