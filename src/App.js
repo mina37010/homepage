@@ -6,6 +6,8 @@ import Party from './pages/Party';
 import Iframe from './pages/Iframe';
 import Shinratsu from './pages/shinratsu';
 import Mac from './pages/Mac';
+import DVD from './pages/DVD';
+
 import Layout from './Layout';
 import { PartyProvider } from './PartyContext';
 
@@ -27,6 +29,7 @@ function App() {
             <Route path="/link" element={<Iframe />} />
             <Route path="/shinratsu" element={<Shinratsu />} />
             <Route path="/mac" element={<Mac />} />
+            <Route path="/DVD" element={<DVD />} />
           </Routes>
         </Layout>
       </PartyProvider>
