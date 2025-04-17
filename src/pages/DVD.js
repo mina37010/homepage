@@ -164,7 +164,7 @@ const DvdLogo = () => {
           min="1"
           max="20"
           value={speed}
-          onChange={(e) => setSpeed(e.target.value >=20 ? 20 :Number(e.target.value))}
+          onChange={(e) => setSpeed(e.target.value > 20 ? 20 :Number(e.target.value))}
           style={{ width: '100px', marginLeft: '10px' }}
         />
         <button onClick={goFullscreen} style={{ marginLeft: '10px' }}>
