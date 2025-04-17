@@ -109,11 +109,11 @@ const DvdLogo = () => {
             position: 'absolute',
             left: `${position.x}px`,
             top: `${position.y}px`,
-
+            width: 'clamp(80px, 15vw, 15vw)',
             height: 'auto',
           }}
         >
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="400" viewBox="0 0 300.000000 186.000000">
+          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 300.000000 186.000000">
             <g transform="translate(0.000000,186.000000) scale(0.050000,-0.050000)" fill={color} stroke="none">
               <path d="M658 3313 l-31 -147 441 -15 c360 -11 457 -21 524 -50 371 -163 194
               -590 -286 -692 -135 -28 -326 -39 -326 -18 0 12 135 556 152 614 10 32 -12 35
@@ -164,7 +164,7 @@ const DvdLogo = () => {
           min="1"
           max="20"
           value={speed}
-          onChange={(e) => setSpeed(Number(e.target.value))}
+          onChange={(e) => setSpeed(e.target.value >=20 ? 20 :Number(e.target.value))}
           style={{ width: '100px', marginLeft: '10px' }}
         />
         <button onClick={goFullscreen} style={{ marginLeft: '10px' }}>
