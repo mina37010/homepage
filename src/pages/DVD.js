@@ -121,7 +121,7 @@ const DvdLogo = () => {
             position: 'absolute',
             left: `${position.x}px`,
             top: `${position.y}px`,
-            width: 'clamp(80px, 15vw, 15vw)',
+            width: 'clamp(80px, 15vh, 15vw)',
             height: 'auto',
           }}
         >
