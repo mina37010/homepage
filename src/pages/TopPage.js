@@ -10,6 +10,8 @@ import RippleImageSwitch from '../components/RippleImageSwitch';
 
 import kiroro1 from '../assets/images/kiroro1.webp';
 import kiroro2 from '../assets/images/kiroro2.webp';
+import kotoha1 from '../assets/images/kotoha1.webp';
+import kotoha2 from '../assets/images/kotoha2.webp';
 
 const TopPage = () => {
     const images = [
@@ -37,7 +39,8 @@ const TopPage = () => {
 
   
   const [hovered, setHovered] = useState(false);
-  
+  const [hovered2, setHovered2] = useState(false);
+
   return (
     <div>
       <div className='yet relative'>
@@ -50,9 +53,18 @@ const TopPage = () => {
             <img
               src={hovered ? kiroro2 : kiroro1}
               alt="kiroro"
-              style={{ position: 'absolute', width: '10%'}}
+              style={{ position: 'absolute', width: '10%',bottom:'0'}}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
+            />
+          </div>
+          <div>
+            <img
+              src={hovered2 ? kotoha2 : kotoha1}
+              alt="kotoha"
+              style={{ position: 'absolute', width: '10%',bottom:'0',right:'10%'}}
+              onMouseEnter={() => setHovered2(true)}
+              onMouseLeave={() => setHovered2(false)}
             />
           </div>
     </div>
