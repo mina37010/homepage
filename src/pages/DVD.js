@@ -6,36 +6,44 @@ const getRandomColor = () =>
 const DvdLogo = () => {
   const logoRef = useRef(null);
   const containerRef = useRef(null);
+
   const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    setTimeout(() => {
-      const container = containerRef.current;
-      const logo = logoRef.current;
-  
-      if (container && logo) {
-        const containerRect = container.getBoundingClientRect();
-        const logoWidth = logo.offsetWidth;
-        const logoHeight = logo.offsetHeight;
-  
-        const maxX = containerRect.width - logoWidth;
-        const maxY = containerRect.height - logoHeight;
-  
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY);
-  
-        setPosition({ x: randomX, y: randomY });
-      }
-    }, 0); // レンダリング完了後に実行
-  }, []);
-
-  const [direction, setDirection] = useState({ dx: 2, dy: 2 });
   const [color, setColor] = useState(getRandomColor());
   const [speed, setSpeed] = useState(2);
 
-  useEffect(() => {
-    let prevHit = false;
+  const directionRef = useRef({ dx: 2, dy: 2 });
+  const positionRef = useRef({ x: 0, y: 0 });
+  const speedRef = useRef(2);
+  const animationRef = useRef(null);
 
+  // speed更新に追従
+  useEffect(() => {
+    speedRef.current = speed;
+  }, [speed]);
+
+  // 初期位置をランダムに
+  useEffect(() => {
+    const container = containerRef.current;
+    const logo = logoRef.current;
+
+    if (container && logo) {
+      const containerRect = container.getBoundingClientRect();
+      const logoWidth = logo.offsetWidth;
+      const logoHeight = logo.offsetHeight;
+
+      const maxX = containerRect.width - logoWidth;
+      const maxY = containerRect.height - logoHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      positionRef.current = { x: randomX, y: randomY };
+      setPosition({ x: randomX, y: randomY });
+    }
+  }, []);
+
+  // アニメーションループ
+  useEffect(() => {
     const moveLogo = () => {
       const logo = logoRef.current;
       const container = containerRef.current;
@@ -43,14 +51,16 @@ const DvdLogo = () => {
       if (!logo || !container) return;
 
       const containerRect = container.getBoundingClientRect();
-
       const logoWidth = logo.offsetWidth;
       const logoHeight = logo.offsetHeight;
 
-      let newX = position.x + direction.dx;
-      let newY = position.y + direction.dy;
-      let newDx = direction.dx;
-      let newDy = direction.dy;
+      let { x, y } = positionRef.current;
+      let { dx, dy } = directionRef.current;
+
+      let newX = x + dx;
+      let newY = y + dy;
+      let newDx = dx;
+      let newDy = dy;
       let hitWall = false;
 
       if (newX <= 0 || newX + logoWidth >= containerRect.width) {
@@ -58,31 +68,33 @@ const DvdLogo = () => {
         hitWall = true;
         newX = Math.max(0, Math.min(newX, containerRect.width - logoWidth));
       }
+
       if (newY <= 0 || newY + logoHeight >= containerRect.height) {
         newDy = -newDy;
         hitWall = true;
         newY = Math.max(0, Math.min(newY, containerRect.height - logoHeight));
       }
 
-      if (hitWall && !prevHit) {
+      if (hitWall) {
         setColor(getRandomColor());
       }
-      prevHit = hitWall;
 
+      directionRef.current = {
+        dx: newDx < 0 ? -speedRef.current : speedRef.current,
+        dy: newDy < 0 ? -speedRef.current : speedRef.current,
+      };
+
+      positionRef.current = { x: newX, y: newY };
       setPosition({ x: newX, y: newY });
-      setDirection({
-        dx: newDx < 0 ? -speed : speed,
-        dy: newDy < 0 ? -speed : speed,
-      });
 
-      requestAnimationFrame(moveLogo);
+      animationRef.current = requestAnimationFrame(moveLogo);
     };
 
-    const animationId = requestAnimationFrame(moveLogo);
-    return () => cancelAnimationFrame(animationId);
-  }, [position, direction, speed]);
+    animationRef.current = requestAnimationFrame(moveLogo);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
 
-  // フルスクリーン切り替え（ユーザー操作が必要）
+  // 全画面表示
   const goFullscreen = () => {
     const el = containerRef.current;
     if (el.requestFullscreen) el.requestFullscreen();
@@ -164,7 +176,7 @@ const DvdLogo = () => {
           min="1"
           max="20"
           value={speed}
-          onChange={(e) => setSpeed(Number(e.target.value))}
+          onChange={(e) => setSpeed(e.target.value >20 ? 20 :Number(e.target.value))}
           style={{ width: '100px', marginLeft: '10px' }}
         />
         <button onClick={goFullscreen} style={{ marginLeft: '10px' }}>
