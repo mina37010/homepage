@@ -4,6 +4,13 @@ import { PiMountainsFill } from "react-icons/pi";
 import { GiCompactDisc } from "react-icons/gi";
 import { useState, useEffect, useCallback  } from 'react';
 import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
+
+import WhatsNew from '../components/WhatsNew'; 
+import RippleImageSwitch from '../components/RippleImageSwitch';
+
+import kiroro1 from '../assets/images/kiroro1.png';
+import kiroro2 from '../assets/images/kiroro2.png';
+
 const TopPage = () => {
     const images = [
       {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
@@ -27,6 +34,9 @@ const TopPage = () => {
     const interval = setInterval(goToNextImage, 5000);
     return () => clearInterval(interval); // クリーンアップ
   }, [goToNextImage]);
+
+  
+  const [hovered, setHovered] = useState(false);
   
   return (
     <div>
@@ -36,16 +46,34 @@ const TopPage = () => {
       <div className='home'>
         <div className='homeA center'>
           <h1>多分テキスト</h1>
+          <div>
+            <img
+              src={hovered ? kiroro2 : kiroro1}
+              alt="kiroro"
+              style={{ position: 'absolute', width: '10%' }}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            />
+          </div>
+    </div>
+        <div className='homeB '>
+          <h1 style={{position: 'relative',borderBottom: '3px solid #AEAEAE',paddingLeft: '20px'}}>What's New !!</h1>
+          <WhatsNew />
         </div>
-        <div className='homeB center'>
-          <h1>多分Blog</h1>
-        </div>
-        <div className='homeC center'>
-          <h1>多分画像</h1>
+        <div className='homeC '>
+        <h1
+          style={{
+            position: 'absolute',
+            zIndex: '10',
+            color: 'white',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+            paddingLeft: '20px'}}
+        >AI画像たち</h1>
+          <RippleImageSwitch />
         </div>
         <div className='homeE center'>
           <div>
-            <h1>多分、風。</h1>
+          <h1>多分、風</h1>
           </div>
         </div>
         <div className='homeD center'>

@@ -1,0 +1,34 @@
+.ripple-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  /* ↓ 追加すると安心 */
+  min-width: 300px;
+}
+.base-image,
+.ripple-transition {
+  position: absolute;
+  inset: 0; /* top, right, bottom, left 全て0に */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* または contain：好みに応じて */
+  object-position: center;
+  display: block;
+}
+
+
+
+/* 波紋切り替えアニメーション */
+.ripple-transition {
+  animation: rippleReveal 1s forwards;
+  clip-path: circle(0% at var(--x) var(--y));
+  z-index: 2;
+}
+
+/* 中心から拡大する波紋エフェクト */
+@keyframes rippleReveal {
+  to {
+    clip-path: circle(200% at var(--x) var(--y));
+  }
+}
