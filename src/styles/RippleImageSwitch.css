@@ -1,10 +1,9 @@
 .ripple-image-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  height: 100%;
-  /* ↓ 追加すると安心 */
-  min-width: 300px;
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  height: 90%;
+  margin-bottom: 10px;
 }
 .base-image,
 .ripple-transition {
@@ -15,6 +14,7 @@
   object-fit: cover; /* または contain：好みに応じて */
   object-position: center;
   display: block;
+  border-radius: 1rem;
 }
 
 

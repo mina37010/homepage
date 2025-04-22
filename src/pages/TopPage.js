@@ -8,8 +8,8 @@ import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 import WhatsNew from '../components/WhatsNew'; 
 import RippleImageSwitch from '../components/RippleImageSwitch';
 
-import kiroro1 from '../assets/images/kiroro1.png';
-import kiroro2 from '../assets/images/kiroro2.png';
+import kiroro1 from '../assets/images/kiroro1.webp';
+import kiroro2 from '../assets/images/kiroro2.webp';
 
 const TopPage = () => {
     const images = [
@@ -50,7 +50,7 @@ const TopPage = () => {
             <img
               src={hovered ? kiroro2 : kiroro1}
               alt="kiroro"
-              style={{ position: 'absolute', width: '10%' }}
+              style={{ position: 'absolute', width: '10%'}}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             />
@@ -60,14 +60,15 @@ const TopPage = () => {
           <h1 style={{position: 'relative',borderBottom: '3px solid #AEAEAE',paddingLeft: '20px'}}>What's New !!</h1>
           <WhatsNew />
         </div>
-        <div className='homeC '>
+        <div className='homeC center'>
         <h1
           style={{
             position: 'absolute',
             zIndex: '10',
             color: 'white',
             textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-            paddingLeft: '20px'}}
+            top:'10px'            
+          }}
         >AI画像たち</h1>
           <RippleImageSwitch />
         </div>
@@ -77,7 +78,7 @@ const TopPage = () => {
           </div>
         </div>
         <div className='homeD center'>
-        <div className="linkContainer">
+        <div className="linkContainer"  style={{borderRadius: '1rem',marginBottom:'20px'}}>
         {images.map((image, index) => (
             <div
               key={index}
