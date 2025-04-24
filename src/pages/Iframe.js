@@ -10,6 +10,7 @@ const Iframe = () => {
     "/maroyaka": "https://maroyaka.party",
     "/churu": "https://itsu.dev"
   };
+
   const notAllowedSite = {
     
   }
@@ -26,7 +27,7 @@ const Iframe = () => {
   const isContact = location.pathname === '/link';
 
   return (
-    <div>
+    <div className='with-nav'>
     <div className={`Iframe ${isContact ? 'NoIframe' : ''}`}>
       <h1>なんですか、これは?</h1>
       <h2><a className='a-non a-hover' href={site[location.pathname]}>{location.pathname.replace('/', '')}</a></h2>
@@ -38,7 +39,7 @@ const Iframe = () => {
         width="95%"
         height="75%"
         src={site[location.pathname]}
-        style={{ border: 'none', marginBottom: '20px' }}
+        style={{ border: 'none'}}
         sandbox="allow-scripts"
       ></iframe>
     </div>
@@ -49,17 +50,17 @@ const Iframe = () => {
       <div className="button-container">
         {Object.entries(site).map(([path]) => (
           <a className="a-non" href={path} rel="noopener noreferrer" key={path}>
-            <button className="site-button">
+            <button className="site-button base-color">
               <span>{username[path]}</span>
-              <span className="button-username">{site[path].replace('https://','')}</span>
+              <span className="button-username pale-color">{site[path].replace('https://','')}</span>
             </button>
           </a>
         ))}
         {Object.entries(notAllowedSite).map(([path, url]) => (
           <a className="a-non" href={url} target="_blank" rel="noopener noreferrer" key={path}>
-            <button className="site-button">
+            <button className="site-button base-color">
               <span>{username[path]}</span>
-              <span className="button-username">{notAllowedSite[path].replace('https://','')}</span>
+              <span className="button-username pale-color">{notAllowedSite[path].replace('https://','')}</span>
             </button>
           </a>
         ))}

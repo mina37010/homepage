@@ -8,22 +8,17 @@ import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 import WhatsNew from '../components/WhatsNew'; 
 import RippleImageSwitch from '../components/RippleImageSwitch';
 
-import kiroro1 from '../assets/images/kiroro1.webp';
-import kiroro2 from '../assets/images/kiroro2.webp';
-import kotoha1 from '../assets/images/kotoha1.webp';
-import kotoha2 from '../assets/images/kotoha2.webp';
 
 const TopPage = () => {
-    const images = [
-      {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
-      {src:'https://pbs.twimg.com/profile_images/1722595990803447808/KzZAqAZR_400x400.png',text:'ちゅるり',link:"https://itsu.dev"},
-      {src:'https://pbs.twimg.com/profile_images/1876704743046967296/WRa_prYp_400x400.png',text:'ぱうろ',link:"https://210o.net"},
-      {src:'https://pbs.twimg.com/profile_images/1670775795898544128/GT-UPbqy_400x400.jpg',text:'定積',link:"https://maroyaka.party"},
-    ];
+  const images = [
+    {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
+    {src:'https://pbs.twimg.com/profile_images/1722595990803447808/KzZAqAZR_400x400.png',text:'ちゅるり',link:"https://itsu.dev"},
+    {src:'https://pbs.twimg.com/profile_images/1876704743046967296/WRa_prYp_400x400.png',text:'ぱうろ',link:"https://210o.net"},
+    {src:'https://pbs.twimg.com/profile_images/1670775795898544128/GT-UPbqy_400x400.jpg',text:'定積',link:"https://maroyaka.party"},
+  ];
   
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 依存関係を安定化するために useCallback でラップする
   const goToNextImage = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   }, [images.length]);
@@ -34,43 +29,23 @@ const TopPage = () => {
 
   useEffect(() => {
     const interval = setInterval(goToNextImage, 5000);
-    return () => clearInterval(interval); // クリーンアップ
+    return () => clearInterval(interval);
   }, [goToNextImage]);
 
   
-  const [hovered, setHovered] = useState(false);
-  const [hovered2, setHovered2] = useState(false);
-
   return (
-    <div>
-      <div className='yet relative'>
-        <h1>スマホ版ページは調整中！</h1>
-      </div>
+    <div className='with-nav'>
+
+      <div className='yet'>
       <div className='home'>
         <div className='homeA center'>
           <h1>多分テキスト</h1>
-          <div>
-            <img
-              src={hovered ? kiroro2 : kiroro1}
-              alt="kiroro"
-              style={{ position: 'absolute', width: '10%',bottom:'0'}}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            />
+        </div>
+        <div className='homeB  honey-drip-box border'>
+          <div className='honey-drip-text'>
+            <h1>What's New !!</h1>
+            <WhatsNew />
           </div>
-          <div>
-            <img
-              src={hovered2 ? kotoha2 : kotoha1}
-              alt="kotoha"
-              style={{ position: 'absolute', width: '10%',bottom:'0',right:'10%'}}
-              onMouseEnter={() => setHovered2(true)}
-              onMouseLeave={() => setHovered2(false)}
-            />
-          </div>
-    </div>
-        <div className='homeB '>
-          <h1 style={{position: 'relative',borderBottom: '3px solid #AEAEAE',paddingLeft: '20px'}}>What's New !!</h1>
-          <WhatsNew />
         </div>
         <div className='homeC center'>
         <h1
@@ -117,32 +92,27 @@ const TopPage = () => {
 
         </div>
         </div>
+        
         <div className='homeParty'>
           <div className='homePartybar'>
-              <a className='a-non a-hover' href='/DVD'>
-                <div className='zBarBox'>
+              <a className='bottun border' href='/DVD'>
                 <GiCompactDisc />
-                </div>
               </a>
-              <a className='a-non a-hover' href='/shinratsu'>
-                <div className='zBarBox'>
+              <a className='bottun border' href='/shinratsu'>
                 <PiMountainsFill />
-                </div>
               </a>
-              <a className='a-non a-hover' href='/party'>
-                <div className='zBarBox'>
+              <a className='bottun border' href='/party'>
                   <LuPartyPopper />
-                </div>
               </a>
           </div>
         </div>
       </div> 
-      <style>{`
-      
-      .yet {
-        display : none;
-      }
+      </div>
 
+      <style>{`
+      .yet{
+        display:block
+      }
       .siteText{
         transition: opacity 0.3s ease-in-out;
       }
@@ -150,10 +120,6 @@ const TopPage = () => {
         opacity:0;
       }
 
-      @media (max-width: 768px) {
-
-
-      }
       `}</style>
     </div>
   );

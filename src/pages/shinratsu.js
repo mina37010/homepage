@@ -21,7 +21,7 @@ const Shinratsu = () => {
   };
 
   return (
-    <div style={{backgroundColor: '#000'}}>
+    <div style={{backgroundColor: '#000',fontFamily:"sans-serif"}}>
         <a href='/' className='a-non'><button
         style={{
           position: 'absolute',

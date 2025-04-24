@@ -1,12 +1,117 @@
-body,html {
-   -webkit-tap-highlight-color: transparent;
-    font-family: Arial, sans-serif;
+  .yusei-magic-regular {
+    font-family: "Yusei Magic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  body,html {
+    -webkit-tap-highlight-color: transparent;
     margin: 0;
-    padding: 0;
-    background-color: #e0ffff;
-    font-size:16px
+    background-color: #fffae6;
+    font-size:16px;
+    color:#4a3625;
+  }
+
+  .with-nav{
+    padding-top: 60px;
+  }
+
+  /*--------------------------------色セット----------------------------*/
+  .base-color{
+    color: #4a3625;
+  }
+  .pale-color{
+    color:#7a5f48;
+  }
+
+  .link-color{
+    color: #a76f4d;
+  }
+
+  .link-color-hover{
+    color: #c29269;
+  }
+
+  a {
+    color: #a76f4d;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #c29269; 
+  }
+  .red{
+    color: #e63946
+  }
+  .bottun-back{
+    color: #f8e6c2;
+  }
+
+  .bottun-back-hover{
+    color:#fcf1db;
+  }
+  /*--------------------------------枠線セット----------------------------*/
+  .borderT {
+    border-top: 1px solid #6a5137;
+    padding-top: 0.5rem;
+  }
+  .borderB {
+    border-bottom: 1px solid #6a5137;
+    padding-bottom: 0.5rem;
+  }
+  .borderL {
+    border-left: 1px solid #6a5137;
+    padding-left: 0.5rem;
+  }
+  .borderR {
+    border-right: 1px solid #6a5137;
+    padding-right: 0.5rem;
+  }
+  .border {
+    border: 1px solid #6a5137;
+    padding: 0.5rem;
+  }
+  /*--------------------------------はちみつ枠----------------------------*/
+  .honey-drip-box {
+    position: relative;
+    border-radius: 1rem;
+    background-color: #f8e6c2;
+    margin: 20px 0;
+    overflow: hidden; /* はちみつをはみ出して見せるため必要！ */
   }
   
+  .honey-drip-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 45' preserveAspectRatio='none'><path d='M0 40 C 40 -20, 80 60, 120 0 S 200 40, 260 10 S 340 60, 400 0 S 460 50, 500 40 V0 H0 Z' fill='%23f9d276'/></svg>") no-repeat;
+    background-size: cover;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .honey-drip-text{
+    position: relative;
+    z-index: 10;
+  }
+
+  /*--------------------------------ボタン----------------------------*/
+  .bottun{
+    background-color: #f8e6c2;
+    margin-left:1rem;
+    border-radius: 1rem;
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px rgb(106, 81, 55);
+  }
+  .bottun:hover{
+    box-shadow: none;
+    background-color: #fcf1db;
+  }
+  
+    /*--------------------------------position----------------------------*/
   .relative {
     display: flex;
     justify-content: center;
@@ -18,10 +123,10 @@ body,html {
   }
 
   .center {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     text-align: center;
     width: 100%;
     height: 100%;
@@ -29,8 +134,7 @@ body,html {
 
 
 
-
-    /* カラフルに変化するテキストシャドウ */
+    /*--------------------------------カラフル枠----------------------------*/
   @keyframes neonGlowColorCycle {
     0% {
       text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
@@ -57,15 +161,18 @@ body,html {
     animation: neonGlowColorCycle 5s infinite alternate;
   }
 
-  /* navbar */
+    /*--------------------------------navbar----------------------------*/
   .navbar {
+    position: fixed;
+    top: 0;                  
+    left: 0;
+    width: 100%;             
+    z-index: 1000;           
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    border-bottom: 1px solid #ccc;
-    background-color: #e9ffff;;
-
+    height: 4.5rem;
+    margin-left:1rem;
   }
   
   .logo-container {
@@ -73,17 +180,7 @@ body,html {
     align-items: center;
   }
   
-  .logo-container img {
-    margin-right: 10px;
-  }
-
-  .asaka{
-    width:70px;
-    height:70px;
-  }
-  
   .site-name {
-    color: black;
     font-size: 2.5rem;
     font-weight: bold;
   }
@@ -94,101 +191,95 @@ body,html {
   
   .nav-links {
     display: flex;
+    flex-direction:row;
+    align-items: center;
+    column-gap: 2rem; 
     list-style: none;
-    align-items: center; /* 各リンクを中央揃え */
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
-  
-  .nav-links li {
-    margin-right: 30px;
-  }
-  
-  .nav-links li a {
-    font-weight: bold;
-    color: #5a5a5a;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center; 
-    height: 100%; 
-  }
-  
-  .nav-links li a:hover {
-    color: gray; 
-  }
+
 
   .hamburger-menu {
-    padding: 0px 5px;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    right: 20px;
+    background-color: transparent;       
+    border: 3px solid #a76f4d;            
+    border-radius: 50%;                 
     cursor: pointer;
-    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    margin-top: 2rem;
+    margin-right: 3rem;
     font-size: 3rem;
-    border-radius: 1vh; /* 角丸ボタン */
-    background-color: #eeeeee;
+    width: 4rem;
+    height: 4rem;
   }
 
-  /* Footer,Link*/
-
-  .footer {
-    color: #5a5a5a;
-    text-align: center;
-    border-top:1px solid #AEAEAE;
+  .hamburger-menu:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
   }
 
+/*--------------------------------Footer,Link----------------------------*/
   .link-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 100vw;
-  }
-
-  .page-links, .social-links {
-    display: flex;
-    align-items: center;
-  }
-  .page-links ul, .social-links ul {
-    
-    display: flex;
-    column-gap: 2rem; 
-    list-style: none;
-    margin-block-start: 0.5em;
-    margin-block-end: 0em;
-    padding-inline-start: 20px;
-    margin-inline-start: 0px;
-    margin-inline-end: 20px;
-  }
-
-
-  .social-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px;
-    display: flex;
-    text-align: right;
-    height: 100%;
     width: 100%;
   }
-  
-  .page-links li a,.social-links li a{
-    font-size: 2rem;  /* アイコンの大きさを調整 */
-    color: #5a5a5a;
-    text-decoration: none;
-    transition: color 0.3s;
+
+  .page-links ul, .social-links ul {
+    display: flex;
     align-items: center;
+    column-gap: 2rem; 
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    height: 100%;
+    width: 100%;
+    font-size: 2rem;
+  }
+  .page-links ul{
+    text-align: left;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
   }
 
-  .page-links li a{
-    font-size: 1.5rem;  /* アイコンの大きさを調整 */
+  .social-links ul {
+    text-align: right;
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .scroll-to-top {
+    background-color: transparent;       
+    font-size: 1.5rem;
+    border: 3px solid #a76f4d;            
+    border-radius: 50%;                  
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
   }
   
-  .page-links li a:hover {
-    color: gray;
+  .scroll-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
   }
-  
-  /* NotFound */
+    /*--------------------------------NotFound----------------------------*/
   .not-found-container {
     text-align: center;
     height: 100vh;
@@ -197,7 +288,7 @@ body,html {
     justify-content: center;
     align-items: center;
   }
-  /* Home */
+    /*--------------------------------Home----------------------------*/
   .home{
     display: grid;
     grid-template-rows: 40vh 30vh 20vh 10vh; /*縦*/
@@ -218,9 +309,6 @@ body,html {
   .homeB{
     grid-row: 1/2;
 	  grid-column: 2/3 ;
-    border:1px solid #AEAEAE;
-    border-radius: 1rem;
-    margin:10px;
   }
 
   .homeC{
@@ -234,7 +322,6 @@ body,html {
   }
 
   .homeParty{
-    border:1px solid #AEAEAE;
     grid-row: 4/5;
 	  grid-column: 1/4;
   }
@@ -247,35 +334,23 @@ body,html {
     align-items: center;
     margin-right:20px;
     height: 100%;
-    color: #5a5a5a;
   }
 
-  .zBarBox {
-    margin-left:1rem;
-    border-radius: 1vw;      /* ビューポート幅に基づく角丸 */
-    border: solid 1px #5a5a5a;
-    padding: 0.5rem 1em;
-    font-weight: bold;
-    box-shadow: 5px 5px 5px #5a5a5a;
-  }
-  .zBarBox:hover{
-    box-shadow: none;
-  }
+
 
   
-  /* 隠しリンク用 */
+    /*--------------------------------リンク隠し----------------------------*/
   .a-non {
     color: inherit;
     text-decoration: none;
     border: none;
     padding: 0;
   }
-
-  .a-hover:hover {
-    color:#909090
+  .a-non:hover {
+    color: inherit;
   }
 
-  /* 埋め込み */
+    /*--------------------------------IFrame----------------------------*/
   .Iframe {
     text-align: center;
     height: 100vh;
@@ -284,50 +359,44 @@ body,html {
 .button-container {
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 1fr));  /* 最大2列 */
-  gap: 10px;  /* ボタン同士の間隔 */
-  margin-bottom: 30px;  /* コンテナ下部に空白 */
-  height : 25%;
+  gap: 1rem;  /* ボタン同士の間隔 */
   text-align: center;    
 }
 
 .site-button {
-  padding: 1vw 30px;          /* 画面幅に比例するパディング */
-  font-size: 2rem;            /* 画面幅に基づいてフォントサイズを調整 */
-  background-color: #eeeeee;
-  color: #5a5a5a;
+  padding: 1vw 2rem;         
+  font-size: 2rem;            
+  font-family: "Yusei Magic";
+  background-color: #f8e6c2;
   border: none;
-  border-radius: 1vw;      /* ビューポート幅に基づく角丸 */
+  border-radius: 1vw;      
   cursor: pointer;
   transition: background-color 0.3s;
   width: 90%;    
-  height : 100%;        /* デフォルトのボタン幅を80%に設定 */
-  margin: 0 auto;        /* ボタンを横中央に配置 */
+  height : 100%;        
+  margin: 0 auto;       
   text-align: left;
   white-space: nowrap;
 }
 
 .site-button:hover {
-  background-color: #e0e0e0;
+  background-color: #fcf1db;
 }
 
 .button-username {
-  font-size :0.6em;
+  font-size :1rem;
   white-space: nowrap;
   position: relative;
-  right: 0px; /* 初期位置：ボタンの左側に隠す */
+  right: 0; /* 初期位置：ボタンの左側に隠す */
   opacity: 0;
   transition: all 0.5s ease; /* アニメーションのスムーズな動き */
-  color: #909090;
 }
 
 .site-button:hover .button-username {
-  right: -30px; /* ボタン内に滑り込む位置 */
+  right: -2rem; /* ボタン内に滑り込む位置 */
   opacity: 1;
 }
 
-.twitter, .instagram .github {
-  align-items: center;
-}
 
 
 /*TopPage リンク*/
@@ -426,24 +495,18 @@ body,html {
 
 @media (min-width: 768px) {
   .snsId {
-    display: flex;
-    font-size: 1.5rem;
-    white-space: nowrap;
     position: absolute;
+    font-size: 1.5rem;
     opacity: 0;
     transition: all 0.5s ease;
-    color: #909090;
-    align-items: center;
-    right: 30rem; /* スライド前提を修正 */
-    text-align: center;
-    pointer-events: none;
+    right: 30rem;
   }
   
   
   .twitter:hover .snsId,
   .instagram:hover .snsId,
   .github:hover .snsId  {
-    right: 12rem;/* ホバー時の動きに問題がなければ維持 */
+    right: 12rem;
     opacity: 1;
   }
 }
@@ -462,29 +525,38 @@ body,html {
 }
 
 
+
+
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   body,html {
     font-size:12px
   }
   .nav-links {
-    display: none; 
+    padding-top: 0rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
     flex-direction: column;
     position: absolute;
-    top: 70px;
-    right: 20px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
+    top: 6rem;
+    right: 10%;
+    width: 30%;
     z-index:15;
+    opacity:0;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
   }
 
   .nav-links.open {
     display: flex;
+    opacity: 1.0;
+    pointer-events: auto;
   }
 
   .hamburger-menu {
-    display: block;
+    display: flex;
   }
 
   .button-container {
@@ -509,7 +581,6 @@ body,html {
     position: absolute;
     opacity: 0;
     transition: all 0.5s ease;
-    color: #909090;
     align-items: center;
     left:50vw;
     text-align: center;

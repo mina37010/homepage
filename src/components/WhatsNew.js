@@ -23,11 +23,11 @@ const WhatsNew = () => {
       <div className="whats-new-list">
         {updates.map((item, index) => (
           <div key={index} className="whats-new-item">
-            <div className="whats-new-date">
+            <div className="pale-color">
               {item.date}
               {isNew(item.date) && <span className="new-badge">NEW</span>}
             </div>
-            <div className="whats-new-content">{item.content}</div>
+            <div className="pale-color">{item.content}</div>
           </div>
         ))}
       </div>
