@@ -1,3 +1,14 @@
+:root {
+  --text-base-color: #4a3625;
+  --text-pale-color: #7a5f48;
+  --text-link-color: #a76f4d;
+  --text-link-color-hover: #c29269;
+  --background-color: #fffae6;
+  --bottun-color: #f8e6c2;
+  --bottun-color-hover:#fcf1db;
+  --color-red: #e63946;
+  --border-color: #6a5137;
+}
   .yusei-magic-regular {
     font-family: "Yusei Magic", sans-serif;
     font-weight: 400;
@@ -7,9 +18,9 @@
   body,html {
     -webkit-tap-highlight-color: transparent;
     margin: 0;
-    background-color: #fffae6;
+    background-color: var(--background-color);
     font-size:16px;
-    color:#4a3625;
+    color:var(--text-base-color);
   }
 
   .with-nav{
@@ -18,63 +29,63 @@
 
   /*--------------------------------色セット----------------------------*/
   .base-color{
-    color: #4a3625;
+    color: var(--text-base-color);
   }
   .pale-color{
-    color:#7a5f48;
+    color: var(--text-pale-color);
   }
 
   .link-color{
-    color: #a76f4d;
+    color: var(--text-link-color);
   }
 
   .link-color-hover{
-    color: #c29269;
+    color: var(--text-link-color-hover);
   }
 
   a {
-    color: #a76f4d;
+    color: var(--text-link-color);
     text-decoration: none;
   }
   a:hover{
-    color: #c29269; 
+    color: var(--text-link-color-hover); 
   }
   .red{
-    color: #e63946
+    color: var(--color-red)
   }
   .bottun-back{
-    color: #f8e6c2;
+    color: var(--bottun-color);
   }
 
   .bottun-back-hover{
-    color:#fcf1db;
+    color:var(--bottun-color-hover);
   }
   /*--------------------------------枠線セット----------------------------*/
   .borderT {
-    border-top: 1px solid #6a5137;
+    border-top: 1px solid var(--border-color);
     padding-top: 0.5rem;
   }
   .borderB {
-    border-bottom: 1px solid #6a5137;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
   }
   .borderL {
-    border-left: 1px solid #6a5137;
+    border-left: 1px solid var(--border-color);
     padding-left: 0.5rem;
   }
   .borderR {
-    border-right: 1px solid #6a5137;
-    padding-right: 0.5rem;
+    border-right: 1px solid var(--border-color);
+    padding-right: 0.5rem; 
   }
   .border {
-    border: 1px solid #6a5137;
+    border: 1px solid var(--border-color);
     padding: 0.5rem;
   }
   /*--------------------------------はちみつ枠----------------------------*/
   .honey-drip-box {
     position: relative;
     border-radius: 1rem;
-    background-color: #f8e6c2;
+    background-color: var(--bottun-color);
     margin: 20px 0;
     overflow: hidden; /* はちみつをはみ出して見せるため必要！ */
   }
@@ -97,18 +108,121 @@
     z-index: 10;
   }
 
+
+
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: fadeInUp 0.5s forwards;
+}
+
+
+.char.last {
+  color: var(--color-red);
+  transform: scale(4);
+  animation: zoomIn 1s forwards;
+}
+
+.char:nth-child(n) {
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+.animation-overlay.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.animation-overlay.hidden {
+  display: none;
+}
+
+.blur-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  animation: blurFade 1s forwards 4s;
+}
+
+.bg-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--bottun-color);
+  z-index: 2;
+  animation: slideOut 1s forwards 3s;
+}
+
+.animation-overlay h1 {
+  z-index: 3;
+  font-size: 4rem;
+  color: var(--text-base-color);
+  animation: Fadeout 1s forwards 2.5s;
+}
+
+
+/* キーフレーム */
+@keyframes fadeInUp {
+  80% {
+    transform: translateY(-20%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideOut {
+  60% {
+    transform: translateX(80%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+
+@keyframes blurFade {
+  to {
+    backdrop-filter: blur(0px);
+  }
+}
+@keyframes Fadeout {
+  to {
+    opacity: 0;
+  }
+}
+
   /*--------------------------------ボタン----------------------------*/
   .bottun{
-    background-color: #f8e6c2;
+    background-color: var(--bottun-color);
     margin-left:1rem;
     border-radius: 1rem;
     padding: 0.5rem 3rem;
     font-weight: bold;
-    box-shadow: 5px 5px 5px rgb(106, 81, 55);
+    box-shadow: 5px 5px 5px var(--border-color);
   }
   .bottun:hover{
     box-shadow: none;
-    background-color: #fcf1db;
+    background-color: var(--bottun-color-hover);
   }
   
     /*--------------------------------position----------------------------*/
@@ -134,7 +248,14 @@
 
 
 
-    /*--------------------------------カラフル枠----------------------------*/
+    /*--------------------------------テキスト装飾(カラフルアニメーション)----------------------------*/
+    .neon-glow {
+      animation: neonGlowColorCycle 5s infinite alternate;
+    }
+  
+    .neon-hover:hover {
+      animation: neonGlowColorCycle 5s infinite alternate;
+    }
   @keyframes neonGlowColorCycle {
     0% {
       text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
@@ -152,14 +273,40 @@
       text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7300, 0 0 30px #ff9900;
     }
   }
+/*--------------------------------テキスト装飾(ホバーアニメーション1)----------------------------*/
+.pop-text span {
+  display: inline-block;
+  transform: translateY(0);
+  opacity: 1;
+}
 
-  .neon-glow {
-    animation: neonGlowColorCycle 5s infinite alternate;
-  }
+.pop-text:hover span {
+  animation: upThenDown 0.8s ease-in-out forwards;
+}
 
-  .neon-hover:hover {
-    animation: neonGlowColorCycle 5s infinite alternate;
+@keyframes upThenDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
   }
+  40% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  90% {
+    transform: translateY(-20%);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+  
 
     /*--------------------------------navbar----------------------------*/
   .navbar {
@@ -167,7 +314,7 @@
     top: 0;                  
     left: 0;
     width: 100%;             
-    z-index: 1000;           
+    z-index: 2;           
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -184,10 +331,6 @@
     font-size: 2.5rem;
     font-weight: bold;
   }
-
-  .site-name:hover {
-    animation: neonGlowColorCycle 5s infinite alternate;
-  }
   
   .nav-links {
     display: flex;
@@ -203,13 +346,12 @@
     margin-bottom: 0.5rem;
   }
 
-
   .hamburger-menu {
     background-color: transparent;       
-    border: 3px solid #a76f4d;            
+    border: 3px solid var(--text-link-color);            
     border-radius: 50%;                 
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px  var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     align-items: center;
     justify-content: center;
@@ -223,7 +365,7 @@
 
   .hamburger-menu:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 10px var(--border-color);
   }
 
 /*--------------------------------Footer,Link----------------------------*/
@@ -262,12 +404,12 @@
   .scroll-to-top {
     background-color: transparent;       
     font-size: 1.5rem;
-    border: 3px solid #a76f4d;            
+    border: 3px solid var(--text-link-color);            
     border-radius: 50%;                  
     width: 50px;
     height: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     display: flex;
     align-items: center;
@@ -277,7 +419,7 @@
   
   .scroll-to-top:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 10px var(--border-color);
   }
     /*--------------------------------NotFound----------------------------*/
   .not-found-container {
@@ -367,7 +509,7 @@
   padding: 1vw 2rem;         
   font-size: 2rem;            
   font-family: "Yusei Magic";
-  background-color: #f8e6c2;
+  background-color: var(--bottun-color);
   border: none;
   border-radius: 1vw;      
   cursor: pointer;
@@ -380,20 +522,20 @@
 }
 
 .site-button:hover {
-  background-color: #fcf1db;
+  background-color: var(--bottun-color-hover);
 }
 
 .button-username {
   font-size :1rem;
   white-space: nowrap;
   position: relative;
-  right: 0; /* 初期位置：ボタンの左側に隠す */
+  right: 0; 
   opacity: 0;
-  transition: all 0.5s ease; /* アニメーションのスムーズな動き */
+  transition: all 0.5s ease; 
 }
 
 .site-button:hover .button-username {
-  right: -2rem; /* ボタン内に滑り込む位置 */
+  right: -2rem; 
   opacity: 1;
 }
 

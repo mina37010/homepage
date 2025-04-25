@@ -19,7 +19,7 @@ function Navbar() {
       <div>
         <div className="center">
           <a className="a-non" href="/">
-            <h1 className="site-name"><font className="red">A</font>saka.party!</h1>
+            <h1 className="site-name neon-hover"><font className="red">A</font>saka.party!</h1>
           </a>
           <img
               src={hovered ? kiroro2 : kiroro1}
@@ -45,9 +45,9 @@ function Navbar() {
 
         {/* ナビゲーションリンク */}
         <ul className={`nav-links ${isMenuOpen ? 'open honey-drip-box border' : ''}`}>
-          <li className='honey-drip-text'><Link to="/">Home</Link></li>
-          <li className='honey-drip-text'><Link to="/link">皆様と一緒!</Link></li>
-          </ul>
+          <li className='honey-drip-text pop-text'><Link to="/">{"Home".split("").map((char, i) => (<span key={i} style={{ animationDelay: `${i * 0.1}s` }}>{char}</span>))}</Link></li>
+          <li className='honey-drip-text pop-text'><Link to="/link">{"皆様と一緒!".split("").map((char, i) => (<span key={i} style={{ animationDelay: `${i * 0.1}s` }}>{char}</span>))}</Link></li>
+        </ul>
       </div>
     </nav>
     

@@ -15,17 +15,18 @@ import Link from './components/Link';
 
     return (
       <div style={{ position: 'relative', minHeight: '100vh' }}>
+        <div className="View">
         {/* ナビゲーションバー */}
         {!hideNavbarPaths.includes(location.pathname) && <Navbar />}
         {/* ページのメインコンテンツ */}
-        <div className="View">
+        
           {children}
-        </div>
+        
         {/* リンク */}
         {!hideNavbarPaths.includes(location.pathname) && <Link />}
         {/* フッター */}
         {!hideNavbarPaths.includes(location.pathname) && <Footer />}
-
+        </div>
 
         {/* 流れる "party!" アニメーション */}
         {partyItems.map((item) => {
