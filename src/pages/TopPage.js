@@ -102,7 +102,7 @@ const TopPage = () => {
             <h1 className='base-color'>This is <font className="red">A</font>saka's portfolio!</h1>
           </div>
           <div className='homeA-sep2'>
-            <img src={leaf} className='leaf'/>
+            <img src={leaf} alt='leaf' className='leaf'/>
           </div>
         </div>
 
