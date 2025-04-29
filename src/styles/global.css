@@ -21,10 +21,12 @@
     background-color: var(--background-color);
     font-size:16px;
     color:var(--text-base-color);
+    width: 100vw;
+    overflow-x: hidden;
   }
 
   .with-nav{
-    padding-top: 60px;
+    padding-top: 0px;
   }
 
   /*--------------------------------色セット----------------------------*/
@@ -87,7 +89,7 @@
     border-radius: 1rem;
     background-color: var(--bottun-color);
     margin: 20px 0;
-    overflow: hidden; /* はちみつをはみ出して見せるため必要！ */
+    overflow: hidden;
   }
   
   .honey-drip-box::after {
@@ -109,7 +111,7 @@
   }
 
 
-
+  /*--------------------------------最初アニメーション----------------------------*/
 .char {
   display: inline-block;
   opacity: 0;
@@ -431,16 +433,47 @@
     align-items: center;
   }
     /*--------------------------------Home----------------------------*/
-  .home{
-    display: grid;
-    grid-template-rows: 40vh 30vh 20vh 10vh; /*縦*/
-    grid-template-columns: 1fr 1fr 1fr; /*横*/
+
+  .yet{
+    display: none;
   }
+
   .homeA{
-    
-    grid-row: 1/3 ;
-	  grid-column: 1/2 ;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-between;
   }
+
+  .homeA-sep1{
+    text-align: center;
+    font-size: 2rem;
+    margin: auto 25% auto 0;
+    width: 60vw;
+  }
+  .homeA-sep2{
+    text-align: center;
+    margin: auto;
+    width: 40vw;
+    overflow: hidden;
+  }
+
+  .leaf{
+    width: 200%;
+    animation:circle 60s reverse linear infinite;
+    transform: rotateX(0);
+  }
+
+  @keyframes circle{
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 
   .homeD{
     grid-row: 3/4 ;
@@ -600,6 +633,10 @@
   opacity: 1;
 }
 
+.imageWrapper:hover .siteText{
+  opacity:0;
+}
+
 .linkImage {
   min-width: 100%;
   height: 100%;
@@ -633,6 +670,9 @@
 
 .nextButton {
   right: 10px;
+}
+.siteText{
+  transition: opacity 0.3s ease-in-out;
 }
 
 @media (min-width: 768px) {

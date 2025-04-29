@@ -8,6 +8,8 @@ import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 import WhatsNew from '../components/WhatsNew'; 
 import RippleImageSwitch from '../components/RippleImageSwitch';
 
+import leaf from '../assets/images/leaf.webp';
+
 const TopPage = () => {
   const images = [
     {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
@@ -94,34 +96,42 @@ const TopPage = () => {
       </div>
       )}
 
-      <div className='yet'>
-      <div className='home'>
-        <div className='homeA center'>
-
-          <h1>多分テキスト</h1>
+        <div className='homeA'>
+          <div className='homeA-sep1'>
+            <h3 className='pale-color'>What is this site?</h3>
+            <h1 className='base-color'>This is <font className="red">A</font>saka's portfolio!</h1>
+          </div>
+          <div className='homeA-sep2'>
+            <img src={leaf} className='leaf'/>
+          </div>
         </div>
+
         <div className='homeB  honey-drip-box border'>
           <div className='honey-drip-text'>
             <h1 >What's New !!</h1>
             <WhatsNew />
           </div>
         </div>
-        <div className='homeC center'>
-        <h1
-          style={{
-            position: 'absolute',
-            zIndex: '10',
-            color: 'white',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-            top:'10px'            
-          }}
-        >AI画像たち</h1>
-          <RippleImageSwitch />
-        </div>
+        
+        <div className='yet'>
+          <div className='homeC center'>
+          <h1
+            style={{
+              position: 'absolute',
+              zIndex: '10',
+              color: 'white',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+              top:'10px'            
+            }}
+          >AI画像たち</h1>
+            <RippleImageSwitch />
+          </div>
+        
         <div className='homeE center'>
           <div>
           <h1>多分、風</h1>
           </div>
+        </div>
         </div>
         <div className='homeD center'>
         <div className="linkContainer"  style={{borderRadius: '1rem',marginBottom:'20px'}}>
@@ -139,7 +149,6 @@ const TopPage = () => {
                 <p>{image.link.replace("https://","")}</p>
                 </div>
               </div></a>
-            {/* ナビゲーションボタン */}
             <button className="navButton prevButton" onClick={goToPrevImage}>
             <SlArrowLeft />
             </button>
@@ -164,21 +173,6 @@ const TopPage = () => {
               </a>
           </div>
         </div>
-      </div> 
-      </div>
-
-      <style>{`
-      .yet{
-        display:block
-      }
-      .siteText{
-        transition: opacity 0.3s ease-in-out;
-      }
-      .imageWrapper:hover .siteText{
-        opacity:0;
-      }
-
-      `}</style>
     </div>
 
   );
