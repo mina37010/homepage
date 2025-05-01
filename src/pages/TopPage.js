@@ -10,6 +10,7 @@ import RippleImageSwitch from '../components/RippleImageSwitch';
 
 import leaf from '../assets/images/leaf.webp';
 import asaka2 from '../assets/images/asaka2.jpeg';
+import Twitter_card from '../assets/images/Twitter_card.png';
 const TopPage = () => {
   const images = [
     {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
@@ -115,6 +116,7 @@ const TopPage = () => {
           <div className='homeB-container-content'>
             <div className='homeB-container-sep1'>
               <img src={asaka2} alt='asaka2' className='asaka'/>
+              <img src={Twitter_card} alt='TW' className='asaka' style={{width:"10px"}}/>
               <h2>浅香ひなた</h2>
             </div>
             <div className='homeB-container-sep2'>
