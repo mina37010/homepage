@@ -116,7 +116,6 @@ const TopPage = () => {
           <div className='homeB-container-content'>
             <div className='homeB-container-sep1'>
               <img src={asaka2} alt='asaka2' className='asaka'/>
-              <img src={Twitter_card} alt='TW' className='asaka' style={{width:"10px"}}/>
               <h2>浅香ひなた</h2>
             </div>
             <div className='homeB-container-sep2'>
