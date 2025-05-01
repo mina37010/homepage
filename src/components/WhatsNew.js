@@ -27,7 +27,7 @@ const WhatsNew = () => {
               {item.date}
               {isNew(item.date) && <span className="new-badge">NEW</span>}
             </div>
-            <div className="pale-color">{item.content}</div>
+            <div className="base-color">{item.content}</div>
           </div>
         ))}
       </div>

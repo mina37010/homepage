@@ -1,6 +1,6 @@
 :root {
   --text-base-color: #4a3625;
-  --text-pale-color: #7a5f48;
+  --text-pale-color: #966942;
   --text-link-color: #a76f4d;
   --text-link-color-hover: #c29269;
   --background-color: #fffae6;
@@ -8,6 +8,8 @@
   --bottun-color-hover:#fcf1db;
   --color-red: #e63946;
   --border-color: #6a5137;
+  --color-pink: #ea9999;
+  --color-jam: #ef767a;
 }
   .yusei-magic-regular {
     font-family: "Yusei Magic", sans-serif;
@@ -92,23 +94,24 @@
     overflow: hidden;
   }
   
-  .honey-drip-box::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 45' preserveAspectRatio='none'><path d='M0 40 C 40 -20, 80 60, 120 0 S 200 40, 260 10 S 340 60, 400 0 S 460 50, 500 40 V0 H0 Z' fill='%23f9d276'/></svg>") no-repeat;
-    background-size: cover;
-    z-index: 1;
-    pointer-events: none;
-  }
-  
-  .honey-drip-text{
-    position: relative;
-    z-index: 10;
-  }
+      .honey-drip-box::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 45' preserveAspectRatio='none'><path d='M0 40 C 40 -20, 80 60, 120 0 S 200 40, 260 10 S 340 60, 400 0 S 460 50, 500 40 V0 H0 Z' fill='%23f9d276'/></svg>") no-repeat;
+        background-size: cover;
+        z-index: 1;
+        pointer-events: none;
+      }
+      
+      .honey-drip-text{
+        position: relative;
+        z-index: 10;
+      }
+
 
 
   /*--------------------------------最初アニメーション----------------------------*/
@@ -349,7 +352,7 @@
   }
 
   .hamburger-menu {
-    background-color: transparent;       
+    background-color: var(--background-color);       
     border: 3px solid var(--text-link-color);            
     border-radius: 50%;                 
     cursor: pointer;
@@ -432,7 +435,7 @@
     justify-content: center;
     align-items: center;
   }
-    /*--------------------------------Home----------------------------*/
+    /*--------------------------------HomeA(title)----------------------------*/
 
   .yet{
     display: none;
@@ -474,27 +477,155 @@
     }
   }
 
+    /*--------------------------------HomeB(about)----------------------------*/
+    .homeB{
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 70vh;
+      padding-bottom: 2rem;
+    }
 
-  .homeD{
-    grid-row: 3/4 ;
-	  grid-column: 1/2 ;
-    margin-left:10px;
-  }
+        .homeB-container {
+          position: relative;
+          display: flex;
+          flex-direction: column; /* タイトルとコンテンツを縦並びに */
+          width: 90%;
+          height: 100%;
+          margin: auto;
+          border: 2px solid var(--border-color);
+          border-radius: 1rem;
+        }
 
-  .homeB{
-    grid-row: 1/2;
-	  grid-column: 2/3 ;
-  }
 
-  .homeC{
-    grid-row: 2/4;
-	  grid-column: 2/3 ;
-  }
+        .homeB-container-title{
+          position: relative;
+          width: 98%;
+          height: 10%;
+          font-size: 1.5rem;
+          margin:auto;
+          display: flex;
+          align-items: flex-start ;
+          padding: 0;
+        }
+            .homeB-container-title h1 {
+              margin-top: 0;
+              line-height: 1;    
+            }
 
-  .homeE{
-    grid-row: 1/4 ;
-	  grid-column: 3/4 ;
-  }
+
+        .homeB-container-content {
+          display: flex; /* 横並びに */
+          height: 90%;
+          width: 100%;
+        }
+
+            .homeB-container-sep1{
+              display: flex;
+              justify-content: center;
+              align-items: center;     
+              flex-direction: column;
+              margin:auto auto 0 auto;
+              width: 50%;
+              height: 100%;
+              font-size: 1.5rem;
+            }
+
+                .asaka{
+                  aspect-ratio: 1 / 1;  /* 正方形にする */
+                  max-width: min(40%,50vh); 
+                  border-radius: 50%;
+                  border: 5px solid var(--bottun-color);
+                }
+
+            .homeB-container-sep2{
+              display: flex;
+              margin:auto;
+              margin-right: 0;
+              width: 40%;
+              height: 90%;
+              flex-direction: column;
+              overflow-y: auto;
+              background-color: var(--bottun-color-hover);
+              border-radius: 1rem;
+            }
+
+                .homeB-container-sep2 h3{
+                  margin-top: 0;
+                  margin-left:2rem;
+                  margin-bottom: 0.5rem;
+                  line-height: 1;
+                }
+                .homeB-container-sep2 h2{
+                  margin-left:1rem;
+                  line-height: 1;
+                }
+
+                .homeB-container-sep2::-webkit-scrollbar {
+                  display: none;
+                }
+
+                .scroll-it{
+                  position:relative;
+                  flex-direction: column;
+                  writing-mode: vertical-rl;
+                  margin:auto auto auto 0;
+                  padding: 0;
+                  line-height: 1;
+                  animation:disc-opacity 2s ease-in-out alternate infinite;
+                }
+
+                @keyframes disc-opacity {
+                  from {opacity: 1;}
+                  to {opacity: 0;}
+                }
+
+
+    .homeC{
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 30vh;
+      margin: auto;
+      padding-bottom: 2rem;
+    }
+
+
+        .jam-drip-box {
+          position: relative;
+          border-radius: 1rem;
+          background-color: var(--bottun-color);
+          margin:auto;
+          border: 2px solid var(--border-color); 
+          width: 90%;
+          height: 100%;
+          overflow-y: auto;
+        }
+            .jam-drip-box::-webkit-scrollbar {
+              display: none;
+            }
+            
+            .jam-drip-box::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 80' preserveAspectRatio='none'><path d='M0,0 V40 Q30,60 50,40 T100,40 Q120,65 140,40 T190,40 Q210,70 230,40 T280,40 Q300,75 320,40 T370,40 Q390,68 410,40 T460,40 Q480,63 500,40 V0 Z' fill='%23ef767a'/></svg>") no-repeat;
+              background-size: cover;
+              z-index: 1;
+              pointer-events: none;
+            }
+
+            
+            .jam-drip-text {
+              position: relative;
+              font-size: 1rem;
+              z-index: 10;
+              margin:0;
+              color: var(--text-base-color);
+            }
 
   .homeParty{
     grid-row: 4/5;
@@ -746,11 +877,6 @@
     height : 40vh;    
   }
 
-  .asaka{
-    width:30px;
-    height:30px;
-  }
-
   .link-section {
     flex-direction: column;
     align-items: center;
@@ -777,51 +903,8 @@
     transform: translate(-50%,2rem);
   }
 
-  /* Home */
-  .home{
-    display: block;
-    width: 100vw;
-  }
-  .homeA{
-    width: 100%;
-    height: 100vh;
-  }
-
-  .homeD{
-    aspect-ratio: 32/9;
-    width: 100%;
-  }
-
-  .homeB{
-    width: 100%;
-
-  }
-
-  .homeC{
-    width: 100%;
-
-  }
-
-  .homeE{
-    width: 100%;
-
-  }
-
-  .homeParty{
-    width: 100%;
-  }
-  .homePartybar {
-    margin:10px 20px;
-  }
 }
 
 @media (max-width: 425px) {
-  body,html {
-    font-size:10px
-  }
 
-  .asaka{
-    width:30px;
-    height:30px;
-  }
 }

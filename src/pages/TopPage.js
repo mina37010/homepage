@@ -9,7 +9,7 @@ import WhatsNew from '../components/WhatsNew';
 import RippleImageSwitch from '../components/RippleImageSwitch';
 
 import leaf from '../assets/images/leaf.webp';
-
+import asaka2 from '../assets/images/asaka2.jpeg';
 const TopPage = () => {
   const images = [
     {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
@@ -71,6 +71,8 @@ const TopPage = () => {
       document.body.style.overflow = '';
     }
   }, []);
+
+  
   
   
   return (
@@ -96,20 +98,54 @@ const TopPage = () => {
       </div>
       )}
 
-        <div className='homeA'>
-          <div className='homeA-sep1'>
-            <h3 className='pale-color'>What is this site?</h3>
-            <h1 className='base-color'>This is <font className="red">A</font>saka's portfolio!</h1>
+      <div className='homeA'>
+        <div className='homeA-sep1'>
+          <h3 className='pale-color'>What is this site?</h3>
+          <h1 className='base-color'>This is <font className="red">A</font>saka's portfolio!</h1>
+        </div>
+        <div className='homeA-sep2'>
+          <img src={leaf} alt='leaf' className='leaf' />
+        </div>
+      </div>
+      <div className='homeB'>
+        <div className='homeB-container'>
+          <div className='homeB-container-title borderB'>
+            <h1>About</h1>
           </div>
-          <div className='homeA-sep2'>
-            <img src={leaf} alt='leaf' className='leaf'/>
+          <div className='homeB-container-content'>
+            <div className='homeB-container-sep1'>
+              <img src={asaka2} alt='asaka2' className='asaka'/>
+              <h2>浅香ひなた</h2>
+            </div>
+            <div className='homeB-container-sep2'>
+              <h2><font className="red">趣</font>味</h2>
+                <h3>三味線・和太鼓・ゲーム・コードこねこね・ラーメン・睡眠</h3>
+              <h2><font className="red">好</font>きなゲーム</h2>
+                <h3>キングダム ハーツII ファイナル ミックス+</h3>
+                <h3>Shadow Coriddor</h3>
+              <h2><font className="red">好</font>きなアーティスト</h2>
+                <h3>平沢進</h3>
+                <h3>SOUL'd OUT</h3>
+                <h3>BABY METAL</h3>
+                <h3>サカナクション</h3>
+              <h2><font className="red">好</font>きな場所</h2>
+                <h3>東京都 東大和市</h3>
+              <h2><font className="red">ち</font>ょっとやってたこと</h2>
+                <h3>3Dモデリング <font className="pale-color">blender</font></h3>
+                <h3>VR</h3>
+            </div>
+            <h3 className='scroll-it pale-color'>Scroll it! →</h3>
           </div>
         </div>
+      </div>
 
-        <div className='homeB  honey-drip-box border'>
-          <div className='honey-drip-text'>
-            <h1 >What's New !!</h1>
-            <WhatsNew />
+        
+        <div className='homeC'>
+          <div className='jam-drip-box border'>
+            <div className='jam-drip-text whats-new'>
+              <h1>What's New !!</h1>
+              <WhatsNew />
+            </div>
           </div>
         </div>
         
