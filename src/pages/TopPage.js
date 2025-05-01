@@ -10,7 +10,7 @@ import RippleImageSwitch from '../components/RippleImageSwitch';
 
 import leaf from '../assets/images/leaf.webp';
 import asaka2 from '../assets/images/asaka2.jpeg';
-import Twitter_card from '../assets/images/Twitter_card.png';
+
 const TopPage = () => {
   const images = [
     {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
