@@ -223,9 +223,9 @@
   /*--------------------------------ボタン----------------------------*/
   .bottun{
     background-color: var(--bottun-color);
-    margin-left:1rem;
-    border-radius: 1rem;
+    height:3rem;
     padding: 0.5rem 3rem;
+    border-radius: 1rem;
     font-weight: bold;
     box-shadow: 5px 5px 5px var(--border-color);
   }
@@ -485,8 +485,9 @@
     .homeB{
       position: relative;
       display: flex;
-      width: 100%;
+      width: 90%;
       height: 70vh;
+      margin: auto;
       padding-bottom: 2rem;
     }
 
@@ -494,7 +495,7 @@
           position: relative;
           display: flex;
           flex-direction: column; /* タイトルとコンテンツを縦並びに */
-          width: 90%;
+          width: 100%;
           height: 100%;
           margin: auto;
           border: 2px solid var(--border-color);
@@ -588,8 +589,8 @@
     .homeC{
       position: relative;
       display: flex;
-      width: 100%;
-      height: 30vh;
+      width: 90%;
+      height: 40vh;
       margin: auto;
       padding-bottom: 2rem;
     }
@@ -600,8 +601,9 @@
           border-radius: 1rem;
           background-color: var(--bottun-color);
           margin:auto;
+          margin-left:0;
           border: 2px solid var(--border-color); 
-          width: 90%;
+          width: 59%;
           height: 100%;
           overflow-y: auto;
         }
@@ -624,27 +626,164 @@
 
             
             .jam-drip-text {
+              width: 95%;
               position: relative;
               font-size: 1rem;
               z-index: 10;
-              margin:0;
+              margin: 0 auto;
               color: var(--text-base-color);
             }
+        
+        /*TopPage リンク*/
+        .linkContainer {
+          position: relative;
+          display: flex;
+          width: 39%;
+          height: 60%;
+          border-radius: 1rem;
+          margin: auto 0 auto auto;
+          border: 2px solid var(--border-color); 
+        }
+
+        .imageWrapper {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        .imageWrapper:not(.active) {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .linkImage {
+          border-radius: 1rem;
+          object-fit: cover;
+          transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+          
+        }
+
+        .hoverOverlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        .overlayText {
+          color: white;
+          transition:opacity 0.3s ease-in-out;
+          opacity: 0;
+        }
+
+        .siteText{
+          width: 100%;
+          position:absolute;
+          z-index:3;
+          top:0;
+          margin:auto;
+          text-shadow:2px 2px 5px var(--bottun-color-hover);
+          color:var(--text-base-color);
+          text-align: center;
+        }
+
+        
+
+
+        .imageWrapper:hover .hoverOverlay {
+          opacity: 1;
+        }
+
+        .imageWrapper:hover .overlayText {
+          opacity: 1;
+        }
+
+        .imageWrapper:hover .siteText{
+          opacity:0;
+        }
+
+        .linkImage {
+          min-width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 1;
+          transition: opacity 0.5s ease-in-out;
+        }
+
+        /* ナビゲーションボタン */
+        .navButton {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.6);
+          color: white;
+          border: none;
+          padding: 10px 5px;
+          cursor: pointer;
+          font-size: 18px;
+          z-index:3;
+          transition: background-color 0.3s ease;
+        }
+
+        .navButton:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prevButton {
+          left: 10px;
+        }
+
+        .nextButton {
+          right: 10px;
+        }
+
+
 
   .homeParty{
-    grid-row: 4/5;
-	  grid-column: 1/4;
-  }
-
-  .homePartybar {
-    font-size: 2rem;
-    display: flex;
     position: relative;
-    justify-content: right;
-    align-items: center;
-    margin-right:20px;
-    height: 100%;
+    width: 90%;
+    height: 25vh;
+    margin: auto;
+    padding-bottom: 2rem;
   }
+      .homeParty-container{
+        border: 2px solid var(--border-color);
+        border-radius: 1rem;
+      }
+      .homeParty-title{
+        position: relative;
+        width: 100%;
+        font-size: 1.5rem;
+        margin:auto;
+        display: flex;
+        padding: 0;
+        height: 8vh;
+      }
+          .homeParty-title h1 {
+            margin:auto;
+            line-height: 1;    
+          }
+
+      .homePartybar {
+        position: relative;
+        display: flex;
+        gap: 10rem;
+        height: 17vh;
+        width: 100%;
+        margin: auto auto 0 auto;
+        justify-content: center;
+        align-items:center; 
+        font-size: 2rem;
+      }
+
 
 
 
@@ -708,108 +847,6 @@
 }
 
 
-
-/*TopPage リンク*/
-.linkContainer {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.imageWrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.imageWrapper:not(.active) {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.linkImage {
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.hoverOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.overlayText {
-  color: white;
-  transition:opacity 0.3s ease-in-out;
-  opacity: 0;
-}
-
-.imageWrapper:hover .linkImage {
-  filter: brightness(0.7);
-}
-
-
-.imageWrapper:hover .hoverOverlay {
-  opacity: 1;
-}
-
-.imageWrapper:hover .overlayText {
-  opacity: 1;
-}
-
-.imageWrapper:hover .siteText{
-  opacity:0;
-}
-
-.linkImage {
-  min-width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* ナビゲーションボタン */
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  padding: 10px 5px;
-  cursor: pointer;
-  font-size: 18px;
-  z-index:3;
-  transition: background-color 0.3s ease;
-}
-
-.navButton:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.prevButton {
-  left: 10px;
-}
-
-.nextButton {
-  right: 10px;
-}
-.siteText{
-  transition: opacity 0.3s ease-in-out;
-}
-
 @media (min-width: 768px) {
   .snsId {
     position: absolute;
@@ -817,9 +854,10 @@
     opacity: 0;
     transition: all 0.5s ease;
     right: 30rem;
+    pointer-events: none;
   }
   
-  
+
   .twitter:hover .snsId,
   .instagram:hover .snsId,
   .github:hover .snsId  {

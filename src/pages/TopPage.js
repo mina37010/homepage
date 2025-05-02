@@ -15,8 +15,7 @@ const TopPage = () => {
   const images = [
     {src:'https://pbs.twimg.com/profile_images/1601292387250499584/09YdhLVp_400x400.jpg',text:'いなにわうどん',link:"https://いなにわうどん.みんな"},
     {src:'https://pbs.twimg.com/profile_images/1722595990803447808/KzZAqAZR_400x400.png',text:'ちゅるり',link:"https://itsu.dev"},
-    {src:'https://pbs.twimg.com/profile_images/1876704743046967296/WRa_prYp_400x400.png',text:'ぱうろ',link:"https://210o.net"},
-    {src:'https://pbs.twimg.com/profile_images/1670775795898544128/GT-UPbqy_400x400.jpg',text:'定積',link:"https://maroyaka.party"},
+    {src:'https://pbs.twimg.com/profile_images/1876704743046967296/WRa_prYp_400x400.png',text:'ぱうろ',link:"https://210o.net"}
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,6 +107,7 @@ const TopPage = () => {
           <img src={leaf} alt='leaf' className='leaf' />
         </div>
       </div>
+
       <div className='homeB'>
         <div className='homeB-container'>
           <div className='homeB-container-title borderB'>
@@ -140,13 +140,55 @@ const TopPage = () => {
         </div>
       </div>
 
+      <div className='homeParty'>
+        <div className='homeParty-container'>
+          <div className='homeParty-title'>
+            <h1 className='borderB'><font className="red">A</font>saka's playground!</h1>
+          </div>
+          <div className='homePartybar'>
+              <a className='bottun border' href='/DVD'>
+                <GiCompactDisc />
+              </a>
+              <a className='bottun border' href='/shinratsu'>
+                <PiMountainsFill />
+              </a>
+              <a className='bottun border' href='/party'>
+                  <LuPartyPopper />
+              </a>
+          </div>
+        </div>
+      </div>
         
         <div className='homeC'>
-          <div className='jam-drip-box border'>
-            <div className='jam-drip-text whats-new'>
+          <div className='jam-drip-box'>
+            <div className='jam-drip-text'>
               <h1>What's New !!</h1>
               <WhatsNew />
             </div>
+          </div>
+          <div className="linkContainer">
+          {images.map((image, index) => (
+              <div
+                key={index}
+                className={`imageWrapper ${index === currentIndex ? 'active' : ''}`}
+              >
+              <a href={image.link}>
+                <h1 className='siteText'>皆様のサイト</h1>
+                <img className="linkImage" src={image.src} alt={image.text} />
+                <div className="hoverOverlay" >
+                  <div className="overlayText">
+                  <h1>{image.text}</h1>
+                  <p>{image.link.replace("https://","")}</p>
+                  </div>
+                </div></a>
+              <button className="navButton prevButton" onClick={goToPrevImage}>
+              <SlArrowLeft />
+              </button>
+              <button className="navButton nextButton" onClick={goToNextImage}>
+              <SlArrowRight />
+              </button>
+              </div>
+            ))}
           </div>
         </div>
         
@@ -170,46 +212,11 @@ const TopPage = () => {
           </div>
         </div>
         </div>
-        <div className='homeD center'>
-        <div className="linkContainer"  style={{borderRadius: '1rem',marginBottom:'20px'}}>
-        {images.map((image, index) => (
-            <div
-              key={index}
-              className={`imageWrapper ${index === currentIndex ? 'active' : ''}`}
-            >
-            <a href={image.link}>
-              <h1 className='siteText center' style={{position:"absolute",zIndex:3,color:"#000",top:"-50%",textShadow:"1px 1px 5px white"}}>皆様のサイト</h1>
-              <img className="linkImage" src={image.src} alt={image.text} />
-              <div className="hoverOverlay" >
-                <div className="overlayText">
-                <h1>{image.text}</h1>
-                <p>{image.link.replace("https://","")}</p>
-                </div>
-              </div></a>
-            <button className="navButton prevButton" onClick={goToPrevImage}>
-            <SlArrowLeft />
-            </button>
-            <button className="navButton nextButton" onClick={goToNextImage}>
-            <SlArrowRight />
-            </button>
-            </div>
-          ))}
-        </div>
+        <div className='homeD'>
+        
         </div>
         
-        <div className='homeParty'>
-          <div className='homePartybar'>
-              <a className='bottun border' href='/DVD'>
-                <GiCompactDisc />
-              </a>
-              <a className='bottun border' href='/shinratsu'>
-                <PiMountainsFill />
-              </a>
-              <a className='bottun border' href='/party'>
-                  <LuPartyPopper />
-              </a>
-          </div>
-        </div>
+        
     </div>
 
   );
