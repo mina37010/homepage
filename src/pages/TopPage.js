@@ -6,7 +6,6 @@ import { useState, useEffect, useCallback  } from 'react';
 import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
 
 import WhatsNew from '../components/WhatsNew'; 
-import RippleImageSwitch from '../components/RippleImageSwitch';
 
 import leaf from '../assets/images/leaf.webp';
 import asaka2 from '../assets/images/asaka2.jpeg';
@@ -76,14 +75,13 @@ const TopPage = () => {
   
   
   return (
-    <div className='with-nav'>
+    <div>
+
       {/* 背景スライド */}
       {isAnimating && (
       <div className={`animation-overlay ${isAnimating ? 'active' : 'hidden'}`}>
         <div className="bg-slide" />
         <div className="blur-overlay" />
-
-
         <h1>
           {chars.map(({ char, isFirst, i }) => (
             <span
@@ -182,38 +180,14 @@ const TopPage = () => {
                   </div>
                 </div></a>
               <button className="navButton prevButton" onClick={goToPrevImage}>
-              <SlArrowLeft />
+              <h1><SlArrowLeft /></h1>
               </button>
               <button className="navButton nextButton" onClick={goToNextImage}>
-              <SlArrowRight />
+              <h1><SlArrowRight /></h1>
               </button>
               </div>
             ))}
           </div>
-        </div>
-        
-        <div className='yet'>
-          <div className='homeC center'>
-          <h1
-            style={{
-              position: 'absolute',
-              zIndex: '10',
-              color: 'white',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-              top:'10px'            
-            }}
-          >AI画像たち</h1>
-            <RippleImageSwitch />
-          </div>
-        
-        <div className='homeE center'>
-          <div>
-          <h1>多分、風</h1>
-          </div>
-        </div>
-        </div>
-        <div className='homeD'>
-        
         </div>
         
         

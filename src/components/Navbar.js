@@ -42,11 +42,11 @@ function Navbar() {
         <div className="hamburger-menu link-color" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <GiHamburgerMenu/>
         </div>
-
         {/* ナビゲーションリンク */}
         <ul className={`nav-links ${isMenuOpen ? 'open honey-drip-box border' : ''}`}>
           <li className='honey-drip-text pop-text'><Link to="/">{"Home".split("").map((char, i) => (<span key={i} style={{ animationDelay: `${i * 0.1}s` }}>{char}</span>))}</Link></li>
           <li className='honey-drip-text pop-text'><Link to="/link">{"皆様と一緒!".split("").map((char, i) => (<span key={i} style={{ animationDelay: `${i * 0.1}s` }}>{char}</span>))}</Link></li>
+          <li className='honey-drip-text pop-text'><Link to="/Gallery3D">{"3D Gallery".split("").map((char, i) => (<span key={i} style={{ animationDelay: `${i * 0.1}s` }}>{char}</span>))}</Link></li>
         </ul>
       </div>
     </nav>

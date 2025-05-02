@@ -12,7 +12,7 @@ const WhatsNew = () => {
   const [updates, setUpdates] = useState([]);
 
   useEffect(() => {
-    fetch('./updates.json')
+    fetch('./data/updates.json')
       .then((res) => res.json())
       .then((data) => setUpdates(data))
       .catch((err) => console.error('更新履歴の取得に失敗:', err));

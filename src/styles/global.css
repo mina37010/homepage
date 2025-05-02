@@ -32,7 +32,7 @@
   }
 
   .with-nav{
-    padding-top: 0px;
+    padding-top: 60px;
   }
 
   /*--------------------------------色セット----------------------------*/
@@ -95,6 +95,7 @@
     border-radius: 1rem;
     background-color: var(--bottun-color);
     margin: 20px 0;
+    width: 100vh;
     overflow: hidden;
   }
   
@@ -348,7 +349,6 @@
     column-gap: 2rem; 
     list-style: none;
     padding: 2rem;
-    height: 100%;
     width: 100%;
     font-size: 1rem;
     margin-top: 0.5rem;
@@ -720,21 +720,17 @@
 
         /* ナビゲーションボタン */
         .navButton {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.6);
-          color: white;
-          border: none;
-          padding: 10px 5px;
-          cursor: pointer;
-          font-size: 18px;
-          z-index:3;
-          transition: background-color 0.3s ease;
-        }
-
-        .navButton:hover {
-          background-color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            text-shadow:2px 2px 5px var(--bottun-color-hover);
+            color: white;
+            border: none;
+            padding: 10px 5px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index:3;
         }
 
         .prevButton {
@@ -889,7 +885,8 @@
     font-size:12px
   }
   .nav-links {
-    padding-top: 0rem;
+    padding-top: 0;
+    padding-bottom: 0;
     font-size: 2rem;
     margin-top: 1rem;
     margin-bottom: 0rem;

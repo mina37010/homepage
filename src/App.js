@@ -6,6 +6,7 @@ import Party from './pages/Party';
 import Iframe from './pages/Iframe';
 import Shinratsu from './pages/shinratsu';
 import DVD from './pages/DVD';
+import Gallery3D from './pages/Gallery3D';
 
 import Layout from './Layout';
 import { PartyProvider } from './PartyContext';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/link" element={<Iframe />} />
             <Route path="/shinratsu" element={<Shinratsu />} />
             <Route path="/DVD" element={<DVD />} />
+            <Route path="/Gallery3D" element={<Gallery3D />} />
           </Routes>
         </Layout>
       </PartyProvider>

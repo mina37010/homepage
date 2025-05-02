@@ -15,6 +15,7 @@ function LinkList() {
               </button>
             </li>
             <li><Link to="/">Home</Link></li>
+            <li><Link to="/Gallery3D">3DGallery</Link></li>
           </ul>
         </div>
 
