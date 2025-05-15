@@ -1,6 +1,6 @@
 {
     "@context": "http://iiif.io/api/presentation/3/context.json",
-    "id": "https://asaka.party/data/Torii/manifest.json",
+    "id": "https://asaka.party/data/Torii_manifest.json",
     "type": "Manifest",
     "items": [
       {
