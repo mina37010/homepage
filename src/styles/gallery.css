@@ -13,18 +13,23 @@
   }
 
   .gallery {
-    column-count: 4;       /* 横5列 */
-    gap: 0;      /* 隙間ゼロ */
+    column-count: 4;    
+    gap: 0;    
     width: 100vw;
+  }
+
+  .gallery-image{
+    border: 1px solid black; /* グレーの枠線 */
+    box-sizing: border-box; /* ボーダー込みでサイズ計算 */
   }
   
   .gallery-image {
-    width: 100%;           /* カラム幅に合わせて縮む */
+    width: 100%;        
     height: auto;
     display: block;
     margin: 0;
     padding: auto;
-    break-inside: avoid;   /* カラム途中で画像が切れないようにする */
+    break-inside: avoid; 
   }
   
 
@@ -59,3 +64,11 @@
     border-radius: 1rem;
     border: 1px solid var(--border-color);
   }
+
+
+  /* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .gallery {
+    column-count: 2;
+  }
+}

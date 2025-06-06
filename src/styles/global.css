@@ -463,7 +463,6 @@
     text-align: center;
     margin: auto;
     width: 40vw;
-    overflow: hidden;
   }
 
   .leaf{
@@ -881,8 +880,169 @@
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+  .homeA-sep1{
+    font-size: 2rem;
+    margin: auto 25% auto 5%;
+  }
+
+  .leaf{
+    position:relative;
+    width: 500%;
+    left:-100%;
+  }
+
+  .homeB-container-content {
+    display: grid; /* 横並びに */
+  }
+      .homeB-container-sep1{
+        margin:10px auto 0 auto;
+      }
+
+      .homeB-container-sep2{
+        margin:auto;
+        width: 95%;
+        height:90%;
+      }
+
+          .scroll-it{
+            position:absolute;
+            right:0;
+            bottom:5%
+          }
+
+  .homePartybar {
+    gap:2rem;
+  }       
+
+  .homeC{
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    width: 90%;
+    height: 45vh;
+  }
+
+
+      .jam-drip-box {
+        width: 100%;
+        height: 70%;
+        margin-bottom: 2rem;
+      }
+      
+      /*TopPage リンク*/
+      .linkContainer {
+        
+        position: relative;
+        display: flex;
+        width: 80%;
+        height: 30%;
+        border-radius: 1rem;
+        margin: auto;
+      }
+
+      .imageWrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .imageWrapper:not(.active) {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .linkImage {
+        border-radius: 1rem;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        
+      }
+
+      .hoverOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .overlayText {
+        color: white;
+        transition:opacity 0.3s ease-in-out;
+        opacity: 0;
+      }
+
+      .siteText{
+        width: 100%;
+        position:absolute;
+        z-index:3;
+        top:0;
+        margin:auto;
+        text-shadow:2px 2px 5px var(--bottun-color-hover);
+        color:var(--text-base-color);
+        text-align: center;
+      }
+
+      
+
+
+      .imageWrapper:hover .hoverOverlay {
+        opacity: 1;
+      }
+
+      .imageWrapper:hover .overlayText {
+        opacity: 1;
+      }
+
+      .imageWrapper:hover .siteText{
+        opacity:0;
+      }
+
+      .linkImage {
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      /* ナビゲーションボタン */
+      .navButton {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.6);
+          text-shadow:2px 2px 5px var(--bottun-color-hover);
+          color: white;
+          border: none;
+          padding: 10px 5px;
+          cursor: pointer;
+          font-size: 18px;
+          z-index:3;
+      }
+
+      .prevButton {
+        left: 10px;
+      }
+
+      .nextButton {
+        right: 10px;
+      }
+
+
+
+
+
+
   body,html {
-    font-size:12px
+    font-size:16px
   }
   .nav-links {
     padding-top: 0;
@@ -941,9 +1101,5 @@
     opacity: 1;
     transform: translate(-50%,2rem);
   }
-
-}
-
-@media (max-width: 425px) {
 
 }
