@@ -962,7 +962,7 @@
   .nav-links {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 0rem;
     flex-direction: column;
@@ -1025,7 +1025,7 @@
 @media (max-width: 425px) {
 
   body,html {
-    font-size:12px
+    font-size:12px;
   }
 
   .leaf{
