@@ -1,6 +1,8 @@
+// functions/nowlisten.ts
+
 import { getAccessTokenFromRefreshToken, fetchRecentTracks } from '../spotify-utils';
 
-export const onRequest: PagesFunction = async ({ env }) => {
+export const onRequest = async ({ env }: any) => {
   const cacheKey = 'nowlisten_cache';
   const ttl = 60;
 
