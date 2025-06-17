@@ -1,6 +1,6 @@
 // src/pages/NowListen.js
 import React, { useEffect, useState } from 'react';
-import './styles/NowListen.css'; // ← CSSを読み込む
+import '../styles/NowListen.css'; // ← CSSを読み込む
 
 export default function NowListen() {
   const [tracks, setTracks] = useState([]);
@@ -13,7 +13,7 @@ export default function NowListen() {
   }, []);
 
   return (
-    <main className="nowlisten-container">
+    <div className="nowlisten-container">
       <h1>🎧 Recently Played</h1>
       <div className="track-scroll-container">
         {tracks.map((track, i) => (
@@ -26,6 +26,6 @@ export default function NowListen() {
           </div>
         ))}
       </div>
-    </main>
+    </div>
   );
 }
