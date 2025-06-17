@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/NowListen.css'; // ← CSSを読み込む
 
 export default function NowListen() {
@@ -41,6 +41,7 @@ export default function NowListen() {
       el.addEventListener('scroll', onScroll);
       return () => el.removeEventListener('scroll', onScroll);
     }, []);
+
   return (
     <div className="nowlisten-container">
       <h1>🎧 <font className="red">A</font>saka's Recently Played</h1>
