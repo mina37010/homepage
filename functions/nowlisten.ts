@@ -1,4 +1,8 @@
 import { getAccessTokenFromRefreshToken, fetchRecentTracks } from '../spotify-utils';
+export const config = {
+  bindings: ['KV_BINDING'], // Cloudflare上で設定したバインディング名
+};
+
 
 export const onRequest = async ({ env }) => {
   try {
