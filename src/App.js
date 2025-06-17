@@ -31,7 +31,7 @@ function App() {
             <Route path="/shinratsu" element={<Shinratsu />} />
             <Route path="/DVD" element={<DVD />} />
             <Route path="/Gallery3D" element={<Gallery3D />} />
-            <Route path="/nowlisten" element={<NowListen />} />
+            <Route path="/asakalisten" element={<NowListen />} />
           </Routes>
         </Layout>
       </PartyProvider>

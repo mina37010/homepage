@@ -1,4 +1,3 @@
-// src/pages/NowListen.js
 import React, { useEffect, useState } from 'react';
 import '../styles/NowListen.css'; // ← CSSを読み込む
 
