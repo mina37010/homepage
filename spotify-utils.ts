@@ -17,7 +17,7 @@ export async function getAccessTokenFromRefreshToken(env: any): Promise<string> 
   }
   
   export async function fetchRecentTracks(accessToken: string): Promise<any[]> {
-    const res = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=10', {
+    const res = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=20', {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
   
