@@ -7,7 +7,7 @@ export const onRequest = async ({ env }) => {
     const cacheKey = 'nowlisten_cache';
     const ttl = 60;
 
-    const cached = await env.MY_KV.get(cacheKey, { type: 'json' });
+    const cached = await env.KV_BINDING.get(cacheKey, { type: 'json' });
     const now = Date.now();
 
     if (cached && now - cached.timestamp < ttl * 1000) {
@@ -25,7 +25,7 @@ export const onRequest = async ({ env }) => {
     const data = await fetchRecentTracks(accessToken);
     console.log('🎧 fetched data:', data);
 
-    await env.MY_KV.put(cacheKey, JSON.stringify({ timestamp: now, data }), {
+    await env.KV_BINDING.put(cacheKey, JSON.stringify({ timestamp: now, data }), {
       expirationTtl: 300,
     });
 
