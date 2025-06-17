@@ -1,5 +1,6 @@
 // src/pages/NowListen.js
 import React, { useEffect, useState } from 'react';
+import './styles/NowListen.css'; // ← CSSを読み込む
 
 export default function NowListen() {
   const [tracks, setTracks] = useState([]);
@@ -12,21 +13,19 @@ export default function NowListen() {
   }, []);
 
   return (
-    <main className="p-4">
-      <h1 className="text-xl font-bold mb-4">Recently Played</h1>
-      <ul className="grid gap-4">
+    <main className="nowlisten-container">
+      <h1>🎧 Recently Played</h1>
+      <div className="track-scroll-container">
         {tracks.map((track, i) => (
-          <li key={i} className="flex items-center space-x-4">
-            <img src={track.image} alt={track.title} className="w-16 h-16 rounded" />
-            <div>
-              <a href={track.url} className="text-lg font-medium hover:underline" target="_blank" rel="noreferrer">
-                {track.title}
-              </a>
-              <p className="text-sm text-gray-500">{track.artist}</p>
-            </div>
-          </li>
+          <div className="track-card" key={i}>
+            <img src={track.image} alt={track.title} />
+            <a href={track.url} target="_blank" rel="noopener noreferrer">
+              {track.title}
+            </a>
+            <p>{track.artist}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </main>
   );
 }
