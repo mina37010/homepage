@@ -1,4 +1,4 @@
-// src/pages/nowlisten.tsx
+import React from 'react'; 
 import { useEffect, useState } from 'react';
 
 type Track = {
@@ -12,7 +12,7 @@ export default function NowListen() {
   const [tracks, setTracks] = useState<Track[]>([]);
 
   useEffect(() => {
-    fetch('/nowlisten')
+    fetch('/nowlisten') // Cloudflare Function にリクエスト
       .then((res) => res.json())
       .then((data) => setTracks(data));
   }, []);
@@ -25,7 +25,7 @@ export default function NowListen() {
           <li key={i} className="flex items-center space-x-4">
             <img src={track.image} alt={track.title} className="w-16 h-16 rounded" />
             <div>
-              <a href={track.url} className="text-lg font-medium hover:underline" target="_blank">
+              <a href={track.url} className="text-lg font-medium hover:underline" target="_blank" rel="noreferrer">
                 {track.title}
               </a>
               <p className="text-sm text-gray-500">{track.artist}</p>
