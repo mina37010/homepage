@@ -1021,6 +1021,10 @@
     padding: 0;
 }
 
+.page-links ul{
+  display:none;
+}
+
 }
 @media (max-width: 425px) {
 

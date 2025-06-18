@@ -16,6 +16,7 @@ function LinkList() {
             </li>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Gallery3D">3DGallery</Link></li>
+            <li><Link to="/asakalisten">最近聞いた曲</Link></li>
           </ul>
         </div>
 

@@ -39,7 +39,7 @@ export default function NowListen() {
   }, []);
 
   return (
-    <div className="nowlisten-container">
+    <div className="nowlisten-container with-nav">
       <h1>🎧 <font className="red">A</font>saka's Recently Played</h1>
       <div className="track-scroll-container" ref={containerRef}>
         {tracks.map((track, i) => (
