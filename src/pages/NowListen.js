@@ -5,22 +5,23 @@ export default function NowListen() {
   const [tracks, setTracks] = useState([]);
   const containerRef = useRef(null);
 
-  const fallbackTracks = [
-    {
-      title: 'Loading...',
-      artist: 'Unknown Artist',
-      image: '/placeholder.jpg',
-      url: '#'
-    },
-    {
-      title: 'Loading...',
-      artist: 'Unknown Artist',
-      image: '/placeholder.jpg',
-      url: '#'
-    }
-  ];
+  
 
   useEffect(() => {
+    const fallbackTracks = [
+        {
+          title: 'Loading...',
+          artist: 'Unknown Artist',
+          image: '/placeholder.jpg',
+          url: '#'
+        },
+        {
+          title: 'Loading...',
+          artist: 'Unknown Artist',
+          image: '/placeholder.jpg',
+          url: '#'
+        }
+      ];
     fetch('/nowlisten')
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
