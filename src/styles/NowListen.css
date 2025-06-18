@@ -28,8 +28,8 @@
     flex: 0 0 auto;
     width: 60vw;
     max-width: 400px;
-    height: 70vh;
-    background: white;
+    height: 50vh;
+    background: #fcf1db;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -43,7 +43,8 @@
   }
   
   .track-card img {
-    height: 75%;
+    width: 95%;
+    padding-top: 10px;
     object-fit: cover;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -52,7 +53,7 @@
   .track-card a {
     display: block;
     font-weight: 600;
-    color: #1db954;
+    color: #ef767a;
     text-decoration: none;
     margin-top: 0.5rem;
   }
@@ -63,7 +64,11 @@
   
   .track-card p {
     margin-top: 0.25rem;
-    color: #666;
     font-size: 0.9rem;
   }
   
+  @media (max-width: 768px) {
+    .track-card {
+        height: 60vw;
+      }
+  }
