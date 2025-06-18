@@ -70,6 +70,6 @@
   
   @media (max-width: 768px) {
     .track-card {
-        height: 60vw;
+        height: 50vh;
       }
   }
