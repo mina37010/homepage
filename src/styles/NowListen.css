@@ -35,6 +35,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     padding-bottom: 1rem;
+    margin :20px 0;
   }
   
   .track-card:hover {
