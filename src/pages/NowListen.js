@@ -1,51 +1,46 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/NowListen.css'; // ← CSSを読み込む
+import '../styles/NowListen.css';
 
 export default function NowListen() {
-    const [tracks, setTracks] = useState([]);
-    const containerRef = useRef(null);
-  
-    useEffect(() => {
-      fetch('/nowlisten')
-        .then((res) => res.json())
-        .then((data) => {
-          setTracks([...data, ...data]); // ループ表示用に2回繰り返す
-          setTimeout(() => {
-            if (containerRef.current) {
-              // 真ん中から始める
-              const middle = containerRef.current.scrollWidth / 2;
-              containerRef.current.scrollLeft = middle;
-            }
-          }, 100);
-        });
-    }, []);
-  
-    // スクロールイベント監視
-    useEffect(() => {
-      const el = containerRef.current;
-      if (!el) return;
-  
-      const onScroll = () => {
-        const scrollLeft = el.scrollLeft;
-        const totalWidth = el.scrollWidth;
-        const visibleWidth = el.clientWidth;
-  
-        // 前後端に来たら真ん中にジャンプ
-        if (scrollLeft < 1) {
-          el.scrollLeft = totalWidth / 2;
-        } else if (scrollLeft + visibleWidth >= totalWidth - 1) {
-          el.scrollLeft = totalWidth / 2 - visibleWidth;
-        }
-      };
-  
-      el.addEventListener('scroll', onScroll);
-      return () => el.removeEventListener('scroll', onScroll);
-    }, []);
+  const [tracks, setTracks] = useState([]);
+  const containerRef = useRef(null);
+
+  const fallbackTracks = [
+    {
+      title: 'Loading...',
+      artist: 'Unknown Artist',
+      image: '/placeholder.jpg',
+      url: '#'
+    },
+    {
+      title: 'Loading...',
+      artist: 'Unknown Artist',
+      image: '/placeholder.jpg',
+      url: '#'
+    }
+  ];
+
+  useEffect(() => {
+    fetch('/nowlisten')
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then((data) => {
+        const tripled = [...data];
+        setTracks(tripled);
+      })
+      .catch((err) => {
+        console.error('Fetch error:', err);
+        const tripled = [...fallbackTracks];
+        setTracks(tripled);
+      });
+  }, []);
 
   return (
     <div className="nowlisten-container">
       <h1>🎧 <font className="red">A</font>saka's Recently Played</h1>
-      <div className="track-scroll-container">
+      <div className="track-scroll-container" ref={containerRef}>
         {tracks.map((track, i) => (
           <div className="track-card" key={i}>
             <img src={track.image} alt={track.title} />

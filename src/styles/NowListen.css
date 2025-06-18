@@ -2,7 +2,6 @@
     font-family: sans-serif;
     padding:2rem;
     text-align: center;
-    height: 100vh;
     
   }
   
@@ -29,7 +28,7 @@
     flex: 0 0 auto;
     width: 60vw;
     max-width: 400px;
-    height: 60vh;
+    height: 70vh;
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
