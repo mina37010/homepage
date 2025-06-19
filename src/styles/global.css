@@ -20,11 +20,17 @@
   body,html {
     -webkit-tap-highlight-color: transparent;
     margin: 0;
-    background-color: var(--background-color);
     font-size:16px;
     color:var(--text-base-color);
     width: 100vw;
     overflow-x: hidden;
+  }
+
+  .pages{
+    background-color: var(--background-color);
+  }
+  .reverse{
+    filter: invert(1);
   }
 
   body::-webkit-scrollbar {

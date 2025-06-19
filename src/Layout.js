@@ -14,7 +14,7 @@ import Link from './components/Link';
     const hideNavbarPaths = ['/party','/shinratsu','/DVD'];
 
     return (
-      <div style={{ position: 'relative', minHeight: '100vh' }}>
+      <div class="pages" style={{ position: 'relative', minHeight: '100vh' }}>
         <div className="View">
         {/* ナビゲーションバー */}
         {!hideNavbarPaths.includes(location.pathname) && <Navbar />}

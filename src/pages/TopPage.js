@@ -4,6 +4,7 @@ import { PiMountainsFill } from "react-icons/pi";
 import { GiCompactDisc } from "react-icons/gi";
 import { useState, useEffect, useCallback  } from 'react';
 import { SlArrowLeft,SlArrowRight } from "react-icons/sl";
+import { Link } from 'react-router-dom';
 
 import WhatsNew from '../components/WhatsNew'; 
 
@@ -144,15 +145,17 @@ const TopPage = () => {
             <h1 className='borderB'><font className="red">A</font>saka's playground!</h1>
           </div>
           <div className='homePartybar'>
-              <a className='bottun border' href='/DVD'>
+              <Link to={"/DVD"} className='bottun border' >
                 <GiCompactDisc />
-              </a>
-              <a className='bottun border' href='/shinratsu'>
+              </Link>
+
+              <Link to={"/shinratsu"} className='bottun border' >
                 <PiMountainsFill />
-              </a>
-              <a className='bottun border' href='/party'>
-                  <LuPartyPopper />
-              </a>
+              </Link>
+
+              <Link to={"/party"} className='bottun border' >
+                <LuPartyPopper />
+              </Link>
           </div>
         </div>
       </div>
