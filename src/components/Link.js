@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaGithub , FaInstagram } from 'react-icons/fa';  // 必要なアイコンをインポート
+import asaka_baner from '../assets/images/asaka_baner.png';
 
 function LinkList() {
   return (
@@ -37,6 +38,13 @@ function LinkList() {
           </ul>
         </div>
       </div>
+      <div class="baner-links">
+        <img
+              src= {asaka_baner}
+              alt="asaka_baner"
+              style={{ height:"100px" , border:"1px solid #c29269" }}
+        />
+        </div>
     </footer>
   );
 }

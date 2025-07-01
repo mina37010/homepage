@@ -848,6 +848,13 @@
   opacity: 1;
 }
 
+.baner-links{
+  width: 100%;
+  position: relative;
+  text-align:  center; 
+  padding: 10px;
+}
+
 
 @media (min-width: 768px) {
   .snsId {

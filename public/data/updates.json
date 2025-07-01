@@ -1,4 +1,5 @@
 [
+    { "date": "2025-07-01", "content": "baner 追加!" },
     { "date": "2025-06-19", "content": "Spotify API を利用したAsaka's Recently Played 追加(asaka.party/asakalisten)" },
     { "date": "2025-06-03", "content": "スマホ版デザイン調整" },
     { "date": "2025-05-03", "content": "3DGallery 追加 (asaka.party/Gallery3D)" },
