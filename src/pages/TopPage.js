@@ -128,6 +128,7 @@ const TopPage = () => {
                 <h3>SOUL'd OUT</h3>
                 <h3>BABY METAL</h3>
                 <h3>サカナクション</h3>
+                <h3>CANDY TUNE</h3>
               <h2><font className="red">好</font>きな場所</h2>
                 <h3>東京都 東大和市</h3>
               <h2><font className="red">ち</font>ょっとやってたこと</h2>

@@ -851,8 +851,15 @@
 .baner-links{
   width: 100%;
   position: relative;
-  text-align:  center; 
-  padding: 10px;
+  text-align:  right; 
+  padding-bottom: 5px;
+}
+
+.baner-links img{
+  height:80px;
+  width: auto;
+  border: 1px solid #c29269;
+  margin-right: 20px;
 }
 
 
@@ -1036,6 +1043,17 @@
 
 .page-links ul{
   display:none;
+}
+
+
+.baner-links{
+  text-align:  center; 
+}
+
+.baner-links img{
+  height:auto;
+  width: 80vw;
+  margin: auto;
 }
 
 }

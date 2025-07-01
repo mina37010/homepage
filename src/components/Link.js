@@ -42,7 +42,6 @@ function LinkList() {
         <img
               src= {asaka_baner}
               alt="asaka_baner"
-              style={{ height:"100px" , border:"1px solid #c29269" }}
         />
         </div>
     </footer>
